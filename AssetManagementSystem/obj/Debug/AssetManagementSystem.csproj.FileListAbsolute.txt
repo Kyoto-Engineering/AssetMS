@@ -1,0 +1,43 @@
+c:\users\kowsar\documents\visual studio 2013\Projects\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.exe.config
+c:\users\kowsar\documents\visual studio 2013\Projects\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.exe
+c:\users\kowsar\documents\visual studio 2013\Projects\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.pdb
+c:\users\kowsar\documents\visual studio 2013\Projects\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.Properties.Resources.resources
+c:\users\kowsar\documents\visual studio 2013\Projects\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.Form1.resources
+c:\users\kowsar\documents\visual studio 2013\Projects\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.csproj.GenerateResource.Cache
+c:\users\kowsar\documents\visual studio 2013\Projects\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.exe
+c:\users\kowsar\documents\visual studio 2013\Projects\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.pdb
+c:\users\kowsar\documents\visual studio 2013\Projects\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.csprojResolveAssemblyReference.cache
+E:\jony\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.exe.config
+E:\jony\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.exe
+E:\jony\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.pdb
+E:\jony\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.exe
+E:\jony\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.pdb
+E:\jony\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.Properties.Resources.resources
+E:\jony\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.Form1.resources
+E:\jony\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.csproj.GenerateResource.Cache
+E:\jony\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.csprojResolveAssemblyReference.cache
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.exe.config
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.exe
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.pdb
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.exe
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.pdb
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.Properties.Resources.resources
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.Form1.resources
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.csproj.GenerateResource.Cache
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.LogInUI.frmLogin.resources
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.LogInUI.frmRegistration.resources
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.UI.MainUI1.resources
+F:\jony\New folder\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.csprojResolveAssemblyReference.cache
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.exe.config
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.exe
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.pdb
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.exe
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\bin\Debug\AssetManagementSystem.pdb
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.LogInUI.frmLogin.resources
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.LogInUI.frmRegistration.resources
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.Properties.Resources.resources
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.Form1.resources
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.UI.MainUI1.resources
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.csproj.GenerateResource.Cache
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.UI.Form2.resources
+G:\On Going Work\AssetManagementSystem\AssetManagementSystem\obj\Debug\AssetManagementSystem.csprojResolveAssemblyReference.cache
