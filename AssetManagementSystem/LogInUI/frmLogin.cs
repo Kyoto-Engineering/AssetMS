@@ -20,7 +20,7 @@ namespace AssetManagementSystem.LogInUI
         //private SqlDataAdapter sda;
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
-        public int uId;
+        public static int uId;
         public static string userType;
         public frmLogin()
         {

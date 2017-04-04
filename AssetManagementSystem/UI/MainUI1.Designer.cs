@@ -35,9 +35,11 @@
             // 
             // CreateAssetButton
             // 
-            this.CreateAssetButton.Location = new System.Drawing.Point(12, 72);
+            this.CreateAssetButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateAssetButton.ForeColor = System.Drawing.Color.Crimson;
+            this.CreateAssetButton.Location = new System.Drawing.Point(25, 105);
             this.CreateAssetButton.Name = "CreateAssetButton";
-            this.CreateAssetButton.Size = new System.Drawing.Size(93, 67);
+            this.CreateAssetButton.Size = new System.Drawing.Size(122, 67);
             this.CreateAssetButton.TabIndex = 0;
             this.CreateAssetButton.Text = "Create Asset Details";
             this.CreateAssetButton.UseVisualStyleBackColor = true;
@@ -46,17 +48,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.OliveDrab;
             this.label1.Location = new System.Drawing.Point(211, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 13);
+            this.label1.Size = new System.Drawing.Size(381, 36);
             this.label1.TabIndex = 1;
             this.label1.Text = "Asset Management System";
             // 
             // btnRegistration
             // 
-            this.btnRegistration.Location = new System.Drawing.Point(12, 159);
+            this.btnRegistration.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistration.ForeColor = System.Drawing.Color.Crimson;
+            this.btnRegistration.Location = new System.Drawing.Point(25, 188);
             this.btnRegistration.Name = "btnRegistration";
-            this.btnRegistration.Size = new System.Drawing.Size(93, 57);
+            this.btnRegistration.Size = new System.Drawing.Size(122, 75);
             this.btnRegistration.TabIndex = 2;
             this.btnRegistration.Text = "Registration";
             this.btnRegistration.UseVisualStyleBackColor = true;
@@ -66,11 +72,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 261);
+            this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.ClientSize = new System.Drawing.Size(822, 490);
             this.Controls.Add(this.btnRegistration);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CreateAssetButton);
             this.Name = "MainUI1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainUI1";
             this.ResumeLayout(false);
             this.PerformLayout();
