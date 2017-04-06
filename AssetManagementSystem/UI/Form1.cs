@@ -111,47 +111,135 @@ namespace AssetManagementSystem
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ctt = "select T_Name from tblTypeOfAsset";
+                cmd = con.CreateCommand();
+
+                cmd.CommandText = "SELECT S_Id from tblStability WHERE S_Name= '" + cmbStability.Text + "'";
+                rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    s_id = rdr.GetInt32(0);
+                }
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ctt = "select distinct RTRIM(T_Name) from tblTypeOfAsset where S_Id= '" + s_id + "'";
                 cmd = new SqlCommand(ctt);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    cmbTypeOfAsset.Items.Add(rdr.GetValue(0).ToString());
+                    //cmbTypeOfAsset.Items.Add(rdr.GetValue(0).ToString());
+                    cmbTypeOfAsset.Items.Add(rdr[0]);
                 }
                 cmbTypeOfAsset.Items.Add("Not In The List");
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
         private void NameofAsssetLoad()
         {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string cttt = "select N_Name from tblNameOfAsset";
-                cmd = new SqlCommand(cttt);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-                while (rdr.Read())
+
+             try
                 {
-                    cmbTypeOfAsset.Items.Add(rdr.GetValue(0).ToString());
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT N_Id from tblNameOfAsset WHERE N_Name= '" + cmbNameOfAsset.Text + "'";
+
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        n_id = rdr.GetInt32(0);
+                    }
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select distinct RTRIM(N_Name) from tblNameOfAsset where T_Id= " + t_id + "";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        cmbNameOfAsset.Items.Add(rdr[0]);
+                    }
+                    cmbNameOfAsset.Items.Add("Not In The List");
+                    con.Close();
                 }
-                cmbTypeOfAsset.Items.Add("Not In The List");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
+            //try
+            //{
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    cmd = con.CreateCommand();
+
+            //    cmd.CommandText = "SELECT T_Id from tblTypeOfAsset WHERE T_Name= '" + cmbTypeOfAsset.Text + "'";
+            //    rdr = cmd.ExecuteReader();
+
+            //    if (rdr.Read())
+            //    {
+            //        t_id = rdr.GetInt32(0);
+                   
+            //    }
+            //    if ((rdr != null))
+            //    {
+            //        rdr.Close();
+            //    }
+            //    if (con.State == ConnectionState.Open)
+            //    {
+            //        con.Close();
+            //    }
+
+            //    con = new SqlConnection(cs.DBConn);
+            //    con.Open();
+            //    string cttt = "select distinct RTRIM(N_Name) from tblNameOfAsset where T_Id= '" + t_id + "'";
+            //    cmd = new SqlCommand(cttt);
+            //    cmd.Connection = con;
+            //    rdr = cmd.ExecuteReader();
+            //    while (rdr.Read())
+            //    {
+            //        //cmbTypeOfAsset.Items.Add(rdr.GetValue(0).ToString());
+            //        cmbTypeOfAsset.Items.Add(rdr[0]);
+            //    }
+            //    cmbTypeOfAsset.Items.Add("Not In The List");
+            //    if (con.State == ConnectionState.Open)
+            //    {
+            //        con.Close();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
-
-
 
         private void cmbStability_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -184,7 +272,7 @@ namespace AssetManagementSystem
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select distinct RTRIM(T_Name) from tblTypeOfAsset where S_Id= " + s_id + "";
+                string ct = "select distinct RTRIM(T_Name) from tblTypeOfAsset where S_Id= '" + s_id + "'";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -222,7 +310,7 @@ namespace AssetManagementSystem
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select T_Name from tblTypeOfAsset where T_Name='" + input + "'";
+                    string ct2 = "select T_Name from tblTypeOfAsset where T_Name='" + input + "' AND S_Id='" + s_id + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
@@ -302,8 +390,6 @@ namespace AssetManagementSystem
             }
         }
 
-
-
         private void cmbNameOfAsset_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -319,7 +405,7 @@ namespace AssetManagementSystem
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select N_Name from tblNameOfAsset where N_Name='" + inp + "'";
+                    string ct2 = "select N_Name from tblNameOfAsset where N_Name='" + inp + "'AND T_Id='" + t_id + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
@@ -335,19 +421,22 @@ namespace AssetManagementSystem
                         {
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string query1 =
+                            string query11 =
                                 "insert into tblNameOfAsset (N_Name, T_Id, UserId, CreationDate) values (@d1,@d2,@d3,@d4)" +
                                 "SELECT CONVERT(int,SCOPE_IDENTITY())";
-                            cmd = new SqlCommand(query1, con);
+                            cmd = new SqlCommand(query11, con);
                             cmd.Parameters.AddWithValue("@d1", inp);
                             cmd.Parameters.AddWithValue("@d2", t_id);
                             cmd.Parameters.AddWithValue("@d3", user_id);
                             cmd.Parameters.AddWithValue("@d4", DateTime.UtcNow.ToLocalTime());
                             cmd.ExecuteNonQuery();
                             con.Close();
+                           
                             cmbNameOfAsset.Items.Clear();
+                            cmbNameOfAsset.SelectedIndex = -1;
+                            cmbNameOfAsset.ResetText();
                             NameofAsssetLoad();
-                            cmbTypeOfAsset.SelectedText = inp;
+                            cmbNameOfAsset.SelectedText = inp;
                         }
                         catch (Exception ex)
                         {
@@ -378,6 +467,20 @@ namespace AssetManagementSystem
                     {
                         con.Close();
                     }
+
+                    //con = new SqlConnection(cs.DBConn);
+                    //con.Open();
+                    //string ct = "select distinct RTRIM(N_Name) from tblNameOfAsset where T_Id= " + t_id + "";
+                    //cmd = new SqlCommand(ct);
+                    //cmd.Connection = con;
+                    //rdr = cmd.ExecuteReader();
+
+                    //while (rdr.Read())
+                    //{
+                    //    cmbNameOfAsset.Items.Add(rdr[0]);
+                    //}
+                    //cmbNameOfAsset.Items.Add("Not In The List");
+                    //con.Close();
                 }
                 catch (Exception ex)
                 {
@@ -538,7 +641,7 @@ namespace AssetManagementSystem
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                String query = "insert into tblAssetDescription(Description, PurchaseDate, V_Id, InvoiceNo, Units, UnitPrice, U_Id, UnitSalvageValue, LifeSpanInYear, N_Id) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
+                String query = "insert into tblAssetDescription(Description, PurchaseDate, V_Id, InvoiceNo, Units, UnitPrice, UserId, U_Id, UnitSalvageValue, LifeSpanInYear, N_Id) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@d1", txtDescription.Text);
                 cmd.Parameters.AddWithValue("@d2", dateTimePicker1.Value);
@@ -546,14 +649,18 @@ namespace AssetManagementSystem
                 cmd.Parameters.AddWithValue("@d4", Convert.ToDecimal(txtInvoiceNo.Text));
                 cmd.Parameters.AddWithValue("@d5", Convert.ToDecimal(txtUnit.Text));
                 cmd.Parameters.AddWithValue("@d6", Convert.ToDecimal(txtUnitPrice.Text));
-                cmd.Parameters.AddWithValue("@d7", unit_id);
-                cmd.Parameters.AddWithValue("@d8", Convert.ToDecimal(txtUnitSalvageValue.Text));
-                cmd.Parameters.AddWithValue("@d9", Convert.ToDecimal(txtLifeSpanInYear.Text));
-                cmd.Parameters.AddWithValue("@d10", n_id);
-                
+                cmd.Parameters.AddWithValue("@d7", user_id);
+                cmd.Parameters.AddWithValue("@d8", unit_id);
+                cmd.Parameters.AddWithValue("@d9", Convert.ToDecimal(txtUnitSalvageValue.Text));
+                cmd.Parameters.AddWithValue("@d10", Convert.ToDecimal(txtLifeSpanInYear.Text));
+                cmd.Parameters.AddWithValue("@d11", n_id);                
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 con.Close();
+                MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);               
+                ClearData();
+                Stability();
+                Unit();
+                Vendor();
             }
             catch (Exception ex)
             {
@@ -561,6 +668,33 @@ namespace AssetManagementSystem
             }           
         }
 
+    private void ClearData()
+    {
+        dateTimePicker1.ResetText();
+        cmbStability.Items.Clear();
+        cmbStability.SelectedIndex = -1;
+        
+        cmbTypeOfAsset.Items.Clear();
+        cmbTypeOfAsset.SelectedIndex = -1;
+        
+        cmbNameOfAsset.Items.Clear();
+        cmbNameOfAsset.SelectedIndex = -1;
+
+        txtDescription.Clear();
+        
+        cmbV_Name.Items.Clear();
+        cmbV_Name.SelectedIndex = -1;
+
+        txtInvoiceNo.Clear();
+
+        cmbUnitname.Items.Clear();
+        cmbUnitname.SelectedIndex = -1;
+
+        txtUnit.Clear();
+        txtUnitPrice.Clear();
+        txtUnitSalvageValue.Clear();
+        txtLifeSpanInYear.Clear();
+    }
         
        
 
@@ -620,12 +754,21 @@ namespace AssetManagementSystem
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
-        {
+      
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+           if (dateTimePicker1.Value > DateTime.Now)
+            {
+                MessageBox.Show("Should not be exceed Date Time from today", "Warrning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dateTimePicker1.ResetText();
+            }            
         }
 
-             
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }         
     }
 }
             

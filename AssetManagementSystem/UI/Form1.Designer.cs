@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnNew = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnMin = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblStability = new System.Windows.Forms.Label();
             this.cmbStability = new System.Windows.Forms.ComboBox();
@@ -56,45 +53,21 @@
             this.cmbUnitname = new System.Windows.Forms.ComboBox();
             this.txtUnit = new System.Windows.Forms.TextBox();
             this.lblUnins = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(672, 12);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(51, 32);
-            this.btnNew.TabIndex = 0;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(813, 439);
+            this.btnSave.BackColor = System.Drawing.Color.Yellow;
+            this.btnSave.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSave.Location = new System.Drawing.Point(813, 413);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(92, 52);
+            this.btnSave.Size = new System.Drawing.Size(92, 55);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnMin
-            // 
-            this.btnMin.Location = new System.Drawing.Point(729, 12);
-            this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(45, 32);
-            this.btnMin.TabIndex = 2;
-            this.btnMin.Text = "Min";
-            this.btnMin.UseVisualStyleBackColor = true;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(777, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(46, 32);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // lblDescription
             // 
@@ -125,7 +98,7 @@
             this.cmbStability.FormattingEnabled = true;
             this.cmbStability.Location = new System.Drawing.Point(179, 167);
             this.cmbStability.Name = "cmbStability";
-            this.cmbStability.Size = new System.Drawing.Size(157, 30);
+            this.cmbStability.Size = new System.Drawing.Size(223, 30);
             this.cmbStability.TabIndex = 19;
             this.cmbStability.SelectedIndexChanged += new System.EventHandler(this.cmbStability_SelectedIndexChanged);
             // 
@@ -142,6 +115,7 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(224, 25);
             this.dateTimePicker1.TabIndex = 34;
             this.dateTimePicker1.Value = new System.DateTime(2016, 12, 16, 21, 18, 41, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // lblPurchaseDate
             // 
@@ -161,7 +135,7 @@
             this.cmbTypeOfAsset.FormattingEnabled = true;
             this.cmbTypeOfAsset.Location = new System.Drawing.Point(179, 214);
             this.cmbTypeOfAsset.Name = "cmbTypeOfAsset";
-            this.cmbTypeOfAsset.Size = new System.Drawing.Size(157, 30);
+            this.cmbTypeOfAsset.Size = new System.Drawing.Size(223, 30);
             this.cmbTypeOfAsset.TabIndex = 26;
             this.cmbTypeOfAsset.SelectedIndexChanged += new System.EventHandler(this.cmbTypeOfAsset_SelectedIndexChanged);
             // 
@@ -194,7 +168,7 @@
             this.cmbNameOfAsset.FormattingEnabled = true;
             this.cmbNameOfAsset.Location = new System.Drawing.Point(179, 252);
             this.cmbNameOfAsset.Name = "cmbNameOfAsset";
-            this.cmbNameOfAsset.Size = new System.Drawing.Size(157, 30);
+            this.cmbNameOfAsset.Size = new System.Drawing.Size(223, 30);
             this.cmbNameOfAsset.TabIndex = 37;
             this.cmbNameOfAsset.SelectedIndexChanged += new System.EventHandler(this.cmbNameOfAsset_SelectedIndexChanged);
             // 
@@ -316,7 +290,7 @@
             this.cmbV_Name.FormattingEnabled = true;
             this.cmbV_Name.Location = new System.Drawing.Point(179, 402);
             this.cmbV_Name.Name = "cmbV_Name";
-            this.cmbV_Name.Size = new System.Drawing.Size(157, 27);
+            this.cmbV_Name.Size = new System.Drawing.Size(223, 27);
             this.cmbV_Name.TabIndex = 56;
             this.cmbV_Name.SelectedIndexChanged += new System.EventHandler(this.cmbV_Name_SelectedIndexChanged);
             // 
@@ -351,12 +325,26 @@
             this.lblUnins.TabIndex = 60;
             this.lblUnins.Text = "Quantity:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Blue;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(414, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(226, 33);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "Asset Entry Form";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(995, 572);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUnins);
             this.Controls.Add(this.txtUnit);
             this.Controls.Add(this.cmbUnitname);
@@ -381,10 +369,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cmbStability);
             this.Controls.Add(this.lblStability);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnMin);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnNew);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -396,10 +381,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnMin;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblStability;
         private System.Windows.Forms.ComboBox cmbStability;
@@ -424,6 +406,7 @@
         private System.Windows.Forms.ComboBox cmbUnitname;
         private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.Label lblUnins;
+        private System.Windows.Forms.Label label1;
     }
 }
 
