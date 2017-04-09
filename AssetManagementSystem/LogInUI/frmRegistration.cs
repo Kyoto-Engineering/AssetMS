@@ -28,7 +28,9 @@ namespace AssetManagementSystem.LogInUI
             txtUsername.Text = "";
             txtPassword.Text = "";
             txtEmail.Text = "";
-            cmbUserType.Text = "";
+            //cmbUserType.Text = "";
+            cmbUserType.Items.Clear();
+            cmbUserType.SelectedIndex = -1;
             txtFullName.Text = "";
             designationTextBox.Text = "";
             departmentTextBox.Text = "";
@@ -209,6 +211,13 @@ namespace AssetManagementSystem.LogInUI
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmRegistration_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            frmLogin frm = new frmLogin();
+            frm.Show();
         }
     }
 }

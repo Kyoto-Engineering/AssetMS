@@ -32,6 +32,20 @@ namespace AssetManagementSystem.UI
             frmRegistration frm = new frmRegistration();
             frm.Show();
         }
+
+        private void Allowancebutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form2 frmm = new Form2();
+            frmm.Show();
+        }
+
+        private void MainUI1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+            frmLogin frmmn = new frmLogin();
+            frmmn.Show();
+        }
    
     }
 }

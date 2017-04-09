@@ -31,6 +31,7 @@
             this.CreateAssetButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegistration = new System.Windows.Forms.Button();
+            this.Allowancebutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CreateAssetButton
@@ -60,7 +61,7 @@
             // 
             this.btnRegistration.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistration.ForeColor = System.Drawing.Color.Crimson;
-            this.btnRegistration.Location = new System.Drawing.Point(25, 188);
+            this.btnRegistration.Location = new System.Drawing.Point(25, 297);
             this.btnRegistration.Name = "btnRegistration";
             this.btnRegistration.Size = new System.Drawing.Size(122, 75);
             this.btnRegistration.TabIndex = 2;
@@ -68,18 +69,32 @@
             this.btnRegistration.UseVisualStyleBackColor = true;
             this.btnRegistration.Click += new System.EventHandler(this.btnRegistration_Click);
             // 
+            // Allowancebutton
+            // 
+            this.Allowancebutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Allowancebutton.ForeColor = System.Drawing.Color.Crimson;
+            this.Allowancebutton.Location = new System.Drawing.Point(25, 195);
+            this.Allowancebutton.Name = "Allowancebutton";
+            this.Allowancebutton.Size = new System.Drawing.Size(122, 67);
+            this.Allowancebutton.TabIndex = 3;
+            this.Allowancebutton.Text = "Asset \r\nAllowance";
+            this.Allowancebutton.UseVisualStyleBackColor = true;
+            this.Allowancebutton.Click += new System.EventHandler(this.Allowancebutton_Click);
+            // 
             // MainUI1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(822, 490);
+            this.Controls.Add(this.Allowancebutton);
             this.Controls.Add(this.btnRegistration);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CreateAssetButton);
             this.Name = "MainUI1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainUI1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainUI1_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,5 +106,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox lblUser;
         private System.Windows.Forms.Button btnRegistration;
+        private System.Windows.Forms.Button Allowancebutton;
     }
 }

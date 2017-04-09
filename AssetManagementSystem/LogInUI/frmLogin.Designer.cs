@@ -33,7 +33,6 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -65,6 +64,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(267, 29);
             this.txtUsername.TabIndex = 2;
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // txtPassword
             // 
@@ -74,31 +74,23 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(267, 29);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // loginButton
             // 
+            this.loginButton.BackColor = System.Drawing.Color.Yellow;
             this.loginButton.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.Location = new System.Drawing.Point(308, 241);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(135, 49);
+            this.loginButton.Size = new System.Drawing.Size(115, 61);
             this.loginButton.TabIndex = 4;
             this.loginButton.Text = "LOGIN";
-            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(671, 23);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Close";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // progressBar2
             // 
-            this.progressBar2.Location = new System.Drawing.Point(33, 276);
+            this.progressBar2.Location = new System.Drawing.Point(33, 271);
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(38, 14);
             this.progressBar2.TabIndex = 6;
@@ -121,7 +113,6 @@
             this.ClientSize = new System.Drawing.Size(758, 392);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.progressBar2);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -130,6 +121,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLogin_FormClosed);
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,7 +137,6 @@
         private System.Windows.Forms.Button loginButton;
         //private System.Windows.Forms.ProgressBar ProgressBar1;
         private System.Windows.Forms.ComboBox cmbUserType;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.Label label3;
     }

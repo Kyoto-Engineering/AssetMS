@@ -27,8 +27,6 @@ namespace AssetManagementSystem.LogInUI
             InitializeComponent();
         }
 
-
-
         private void loginButton_Click(object sender, EventArgs e)
         {
             if (txtUsername.Text == "")
@@ -115,7 +113,6 @@ namespace AssetManagementSystem.LogInUI
                    
                 }
 
-
                 else
                 {
                     MessageBox.Show("Login is Failed...Try again !", "Login Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -129,9 +126,6 @@ namespace AssetManagementSystem.LogInUI
                 {
                     myConnection.Dispose();
                 }
-
-
-
             }
             catch (Exception ex)
             {
@@ -139,22 +133,30 @@ namespace AssetManagementSystem.LogInUI
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
         }
 
-        
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginButton_Click(this, new EventArgs());
+            }
+        }
 
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPassword.Focus();
+            }
+        }
 
-
-       
-
-
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
