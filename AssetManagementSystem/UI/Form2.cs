@@ -475,26 +475,30 @@ namespace AssetManagementSystem.UI
                 MessageBox.Show("Please Select Incumbent Name", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+            else
+            {
 
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                String query = "insert into Allowance(A_Units, FirstA_Date, D_Id, UserId) values (@d1,@d2,@d3,@d4)";
-                cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@d1", Convert.ToDecimal(txtAllowanceUnits.Text));
-                cmd.Parameters.AddWithValue("@d2", dateTimePicker2.Value);
-                cmd.Parameters.AddWithValue("@d3", d_id);
-                cmd.Parameters.AddWithValue("@d4", user_id);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Added successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearAll();
-               
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    String query = "insert into Allowance(A_Units, FirstA_Date, D_Id, UserId) values (@d1,@d2,@d3,@d4)";
+                    cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@d1", Convert.ToDecimal(txtAllowanceUnits.Text));
+                    cmd.Parameters.AddWithValue("@d2", dateTimePicker2.Value);
+                    cmd.Parameters.AddWithValue("@d3", d_id);
+                    cmd.Parameters.AddWithValue("@d4", user_id);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Added successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearAll();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

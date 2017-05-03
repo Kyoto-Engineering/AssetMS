@@ -393,8 +393,8 @@ namespace AssetManagementSystem
                             con.Close();
 
                             cmbNameOfAsset.Items.Clear();
-                            cmbNameOfAsset.SelectedIndex = -1;
-                            cmbNameOfAsset.ResetText();
+                            //cmbNameOfAsset.SelectedIndex = -1;
+                            //cmbNameOfAsset.ResetText();
                             NameofAsssetLoad();
                             cmbNameOfAsset.SelectedText = inp;
                         }
@@ -427,20 +427,6 @@ namespace AssetManagementSystem
                     {
                         con.Close();
                     }
-
-                    //con = new SqlConnection(cs.DBConn);
-                    //con.Open();
-                    //string ct = "select distinct RTRIM(N_Name) from tblNameOfAsset where T_Id= " + t_id + "";
-                    //cmd = new SqlCommand(ct);
-                    //cmd.Connection = con;
-                    //rdr = cmd.ExecuteReader();
-
-                    //while (rdr.Read())
-                    //{
-                    //    cmbNameOfAsset.Items.Add(rdr[0]);
-                    //}
-                    //cmbNameOfAsset.Items.Add("Not In The List");
-                    //con.Close();
                 }
                 catch (Exception ex)
                 {
@@ -596,35 +582,47 @@ namespace AssetManagementSystem
             {
                 MessageBox.Show("Please enter Unit Price", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    String query =
+                        "insert into tblAssetDescription(Description, PurchaseDate, V_Id, InvoiceNo, Units, UnitPrice, UserId, U_Id, UnitSalvageValue, LifeSpanInYear, N_Id) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)";
+                    cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@d1", txtDescription.Text);
+                    cmd.Parameters.AddWithValue("@d2", dateTimePicker1.Value);
+                    cmd.Parameters.AddWithValue("@d3", v_id);
+                    cmd.Parameters.Add(new SqlParameter("@d4",
+                        string.IsNullOrEmpty(txtInvoiceNo.Text) ? (object)DBNull.Value : txtInvoiceNo.Text));
 
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                String query = "insert into tblAssetDescription(Description, PurchaseDate, V_Id, InvoiceNo, Units, UnitPrice, UserId, U_Id, UnitSalvageValue, LifeSpanInYear, N_Id) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)";
-                cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@d1", txtDescription.Text);
-                cmd.Parameters.AddWithValue("@d2", dateTimePicker1.Value);
-                cmd.Parameters.AddWithValue("@d3", v_id);
-                cmd.Parameters.AddWithValue("@d4", Convert.ToDecimal(txtInvoiceNo.Text));
-                cmd.Parameters.AddWithValue("@d5", Convert.ToDecimal(txtUnit.Text));
-                cmd.Parameters.AddWithValue("@d6", Convert.ToDecimal(txtUnitPrice.Text));
-                cmd.Parameters.AddWithValue("@d7", user_id);
-                cmd.Parameters.AddWithValue("@d8", unit_id);
-                cmd.Parameters.AddWithValue("@d9", Convert.ToDecimal(txtUnitSalvageValue.Text));
-                cmd.Parameters.AddWithValue("@d10", Convert.ToDecimal(txtLifeSpanInYear.Text));
-                cmd.Parameters.AddWithValue("@d11", n_id);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearData();
-                Stability();
-                Unit();
-                Vendor();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //cmd.Parameters.AddWithValue("@d4", txtInvoiceNo.Text);
+                    cmd.Parameters.AddWithValue("@d5", Convert.ToDecimal(txtUnit.Text));
+                    cmd.Parameters.AddWithValue("@d6", Convert.ToDecimal(txtUnitPrice.Text));
+                    cmd.Parameters.AddWithValue("@d7", user_id);
+                    cmd.Parameters.AddWithValue("@d8", unit_id);
+
+                    cmd.Parameters.Add(new SqlParameter("@d9",
+                        string.IsNullOrEmpty(txtUnitSalvageValue.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtUnitSalvageValue.Text)));
+                    cmd.Parameters.Add(new SqlParameter("@d10",
+                        string.IsNullOrEmpty(txtLifeSpanInYear.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtLifeSpanInYear.Text)));
+
+                    //cmd.Parameters.AddWithValue("@d9", Convert.ToDecimal(txtUnitSalvageValue.Text));
+                    //cmd.Parameters.AddWithValue("@d10", Convert.ToDecimal(txtLifeSpanInYear.Text));
+                    cmd.Parameters.AddWithValue("@d11", n_id);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearData();
+                    Stability();
+                    Unit();
+                    Vendor();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -705,7 +703,7 @@ namespace AssetManagementSystem
 
         private void txtInvoiceNo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            //e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
 
         }
 
@@ -735,6 +733,11 @@ namespace AssetManagementSystem
             this.Dispose();
             MainUI1 frm3 = new MainUI1();
             frm3.Show();
+        }
+
+        private void txtInvoiceNo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }
