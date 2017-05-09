@@ -46,6 +46,20 @@ namespace AssetManagementSystem.UI
             frmLogin frmmn = new frmLogin();
             frmmn.Show();
         }
+
+        private void AssetTypeCreationbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmTypeOfAssetCreation frm = new frmTypeOfAssetCreation();
+            frm.Show();
+        }
+
+        private void VendorCreationbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmVendorCreation frm = new frmVendorCreation();
+            frm.Show();
+        }
    
     }
 }

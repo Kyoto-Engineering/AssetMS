@@ -34,7 +34,8 @@ namespace AssetManagementSystem
         private void Form1_Load(object sender, EventArgs e)
         {
             user_id = frmLogin.uId.ToString();
-            Stability();
+            TypeofAsssetLoad();
+            //Stability();
             Unit();
             Vendor();
         }
@@ -67,7 +68,7 @@ namespace AssetManagementSystem
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select V_Name from tblVendor";
+                string ct = "select V_Name from tblVendor order by V_Name asc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -75,7 +76,7 @@ namespace AssetManagementSystem
                 {
                     cmbV_Name.Items.Add(rdr.GetValue(0).ToString());
                 }
-                cmbV_Name.Items.Add("Not In The List");
+                //cmbV_Name.Items.Add("Not In The List");
             }
             catch (Exception ex)
             {
@@ -83,27 +84,27 @@ namespace AssetManagementSystem
             }
         }
 
-        private void Stability()
-        {
-            try
-            {
+        //private void Stability()
+        //{
+        //    try
+        //    {
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select S_Name from tblStability";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    cmbStability.Items.Add(rdr.GetValue(0).ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //        con = new SqlConnection(cs.DBConn);
+        //        con.Open();
+        //        string ct = "select S_Name from tblStability";
+        //        cmd = new SqlCommand(ct);
+        //        cmd.Connection = con;
+        //        rdr = cmd.ExecuteReader();
+        //        while (rdr.Read())
+        //        {
+        //            cmbStability.Items.Add(rdr.GetValue(0).ToString());
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
 
 
@@ -111,29 +112,29 @@ namespace AssetManagementSystem
         {
             try
             {
+                //con = new SqlConnection(cs.DBConn);
+                //con.Open();
+                //cmd = con.CreateCommand();
+
+                //cmd.CommandText = "SELECT S_Id from tblStability WHERE S_Name= '" + cmbStability.Text + "'";
+                //rdr = cmd.ExecuteReader();
+
+                //if (rdr.Read())
+                //{
+                //    s_id = rdr.GetInt32(0);
+                //}
+                //if ((rdr != null))
+                //{
+                //    rdr.Close();
+                //}
+                //if (con.State == ConnectionState.Open)
+                //{
+                //    con.Close();
+                //}
+
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = con.CreateCommand();
-
-                cmd.CommandText = "SELECT S_Id from tblStability WHERE S_Name= '" + cmbStability.Text + "'";
-                rdr = cmd.ExecuteReader();
-
-                if (rdr.Read())
-                {
-                    s_id = rdr.GetInt32(0);
-                }
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ctt = "select distinct RTRIM(T_Name) from tblTypeOfAsset where S_Id= '" + s_id + "'";
+                string ctt = "select T_Name from tblTypeOfAsset order by T_Name asc";
                 cmd = new SqlCommand(ctt);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -142,7 +143,7 @@ namespace AssetManagementSystem
                     //cmbTypeOfAsset.Items.Add(rdr.GetValue(0).ToString());
                     cmbTypeOfAsset.Items.Add(rdr[0]);
                 }
-                cmbTypeOfAsset.Items.Add("Not In The List");
+                //cmbTypeOfAsset.Items.Add("Not In The List");
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
@@ -198,55 +199,55 @@ namespace AssetManagementSystem
             }
         }
 
-        private void cmbStability_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cmbTypeOfAsset.Items.Clear();
-            cmbTypeOfAsset.SelectedIndex = -1;
-            cmbTypeOfAsset.ResetText();
+        //private void cmbStability_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    cmbTypeOfAsset.Items.Clear();
+        //    cmbTypeOfAsset.SelectedIndex = -1;
+        //    cmbTypeOfAsset.ResetText();
 
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
+        //    try
+        //    {
+        //        con = new SqlConnection(cs.DBConn);
 
-                con.Open();
-                cmd = con.CreateCommand();
+        //        con.Open();
+        //        cmd = con.CreateCommand();
 
-                cmd.CommandText = "SELECT S_Id from tblStability WHERE S_Name= '" + cmbStability.Text + "'";
-                rdr = cmd.ExecuteReader();
+        //        cmd.CommandText = "SELECT S_Id from tblStability WHERE S_Name= '" + cmbStability.Text + "'";
+        //        rdr = cmd.ExecuteReader();
 
-                if (rdr.Read())
-                {
-                    s_id = rdr.GetInt32(0);
-                }
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
+        //        if (rdr.Read())
+        //        {
+        //            s_id = rdr.GetInt32(0);
+        //        }
+        //        if ((rdr != null))
+        //        {
+        //            rdr.Close();
+        //        }
+        //        if (con.State == ConnectionState.Open)
+        //        {
+        //            con.Close();
+        //        }
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select distinct RTRIM(T_Name) from tblTypeOfAsset where S_Id= '" + s_id + "'";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
+        //        con = new SqlConnection(cs.DBConn);
+        //        con.Open();
+        //        string ct = "select distinct RTRIM(T_Name) from tblTypeOfAsset where S_Id= '" + s_id + "'";
+        //        cmd = new SqlCommand(ct);
+        //        cmd.Connection = con;
+        //        rdr = cmd.ExecuteReader();
 
-                while (rdr.Read())
-                {
-                    cmbTypeOfAsset.Items.Add(rdr[0]);
-                }
-                cmbTypeOfAsset.Items.Add("Not In The List");
-                con.Close();
-            }
+        //        while (rdr.Read())
+        //        {
+        //            cmbTypeOfAsset.Items.Add(rdr[0]);
+        //        }
+        //        //cmbTypeOfAsset.Items.Add("Not In The List");
+        //        con.Close();
+        //    }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void cmbTypeOfAsset_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -255,58 +256,58 @@ namespace AssetManagementSystem
             cmbNameOfAsset.ResetText();
 
 
-            if (cmbTypeOfAsset.Text == "Not In The List")
-            {
-                string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Asset Type Here", "Input Here",
-                    "", -1, -1);
-                if (string.IsNullOrWhiteSpace(input))
-                {
-                    cmbTypeOfAsset.SelectedIndex = -1;
-                }
-                else
-                {
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string ct2 = "select T_Name from tblTypeOfAsset where T_Name='" + input + "' AND S_Id='" + s_id + "'";
-                    cmd = new SqlCommand(ct2, con);
-                    rdr = cmd.ExecuteReader();
-                    if (rdr.Read() && !rdr.IsDBNull(0))
-                    {
-                        MessageBox.Show("This Type of Asset Already Exists,Please Select From List", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        con.Close();
-                        cmbTypeOfAsset.SelectedIndex = -1;
-                    }
-                    else
-                    {
-                        try
-                        {
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            string query1 = "insert into tblTypeOfAsset (T_Name, S_Id) values (@d1,@d2)" +
-                                            "SELECT CONVERT(int,SCOPE_IDENTITY())";
-                            cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", input);
-                            cmd.Parameters.AddWithValue("@d2", s_id);
-                            cmd.ExecuteNonQuery();
-                            con.Close();
+            //if (cmbTypeOfAsset.Text == "Not In The List")
+            //{
+            //    string input = Microsoft.VisualBasic.Interaction.InputBox("Please Input Asset Type Here", "Input Here",
+            //        "", -1, -1);
+            //    if (string.IsNullOrWhiteSpace(input))
+            //    {
+            //        cmbTypeOfAsset.SelectedIndex = -1;
+            //    }
+            //    else
+            //    {
+            //        con = new SqlConnection(cs.DBConn);
+            //        con.Open();
+            //        string ct2 = "select T_Name from tblTypeOfAsset where T_Name='" + input + "' AND S_Id='" + s_id + "'";
+            //        cmd = new SqlCommand(ct2, con);
+            //        rdr = cmd.ExecuteReader();
+            //        if (rdr.Read() && !rdr.IsDBNull(0))
+            //        {
+            //            MessageBox.Show("This Type of Asset Already Exists,Please Select From List", "Error",
+            //                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            con.Close();
+            //            cmbTypeOfAsset.SelectedIndex = -1;
+            //        }
+            //        else
+            //        {
+            //            try
+            //            {
+            //                con = new SqlConnection(cs.DBConn);
+            //                con.Open();
+            //                string query1 = "insert into tblTypeOfAsset (T_Name, S_Id) values (@d1,@d2)" +
+            //                                "SELECT CONVERT(int,SCOPE_IDENTITY())";
+            //                cmd = new SqlCommand(query1, con);
+            //                cmd.Parameters.AddWithValue("@d1", input);
+            //                cmd.Parameters.AddWithValue("@d2", s_id);
+            //                cmd.ExecuteNonQuery();
+            //                con.Close();
 
-                            cmbTypeOfAsset.Items.Clear();
-                            //cmbTypeOfAsset.SelectedIndex = -1;
-                            TypeofAsssetLoad();
-                            cmbTypeOfAsset.SelectedText = input;
+            //                cmbTypeOfAsset.Items.Clear();
+            //                //cmbTypeOfAsset.SelectedIndex = -1;
+            //                TypeofAsssetLoad();
+            //                cmbTypeOfAsset.SelectedText = input;
                             
 
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            else
-            {
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            }
+            //        }
+            //    }
+            //}
+            //else
+            //{
                 try
                 {
                     con = new SqlConnection(cs.DBConn);
@@ -348,7 +349,7 @@ namespace AssetManagementSystem
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
+        
 
         private void cmbNameOfAsset_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -439,66 +440,90 @@ namespace AssetManagementSystem
         private void cmbV_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (cmbV_Name.Text == "Not In The List")
-            {
-                string inpv = Microsoft.VisualBasic.Interaction.InputBox("Please Input Vendor Name Here", "Input Here",
-                    "", -1, -1);
-                if (string.IsNullOrWhiteSpace(inpv))
-                {
-                    cmbV_Name.SelectedIndex = -1;
-                }
-                else
-                {
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string ctt2 = "select V_Name from tblVendor where V_Name='" + inpv + "'";
-                    cmd = new SqlCommand(ctt2, con);
-                    rdr = cmd.ExecuteReader();
-                    if (rdr.Read() && !rdr.IsDBNull(0))
-                    {
-                        MessageBox.Show("This Name of Vendor Already Exists,Please Select From List", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        con.Close();
-                        cmbV_Name.SelectedIndex = -1;
-                    }
-                    else
-                    {
-                        try
-                        {
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            string query1 =
-                                "insert into tblVendor (V_Name, UserId) values (@d1,@d2)" +
-                                "SELECT CONVERT(int,SCOPE_IDENTITY())";
-                            cmd = new SqlCommand(query1, con);
-                            cmd.Parameters.AddWithValue("@d1", inpv);
-                            cmd.Parameters.AddWithValue("@d2", user_id);
-                            cmd.ExecuteNonQuery();
-                            con.Close();
-                            cmbV_Name.Items.Clear();
-                            Vendor();
-                            cmbV_Name.SelectedText = inpv;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            else
-            {
+            //if (cmbV_Name.Text == "Not In The List")
+            //{
+            //    string inpv = Microsoft.VisualBasic.Interaction.InputBox("Please Input Vendor Name Here", "Input Here",
+            //        "", -1, -1);
+            //    if (string.IsNullOrWhiteSpace(inpv))
+            //    {
+            //        cmbV_Name.SelectedIndex = -1;
+            //    }
+            //    else
+            //    {
+            //        con = new SqlConnection(cs.DBConn);
+            //        con.Open();
+            //        string ctt2 = "select V_Name from tblVendor where V_Name='" + inpv + "'";
+            //        cmd = new SqlCommand(ctt2, con);
+            //        rdr = cmd.ExecuteReader();
+            //        if (rdr.Read() && !rdr.IsDBNull(0))
+            //        {
+            //            MessageBox.Show("This Name of Vendor Already Exists,Please Select From List", "Error",
+            //                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            con.Close();
+            //            cmbV_Name.SelectedIndex = -1;
+            //        }
+            //        else
+            //        {
+            //            try
+            //            {
+            //                con = new SqlConnection(cs.DBConn);
+            //                con.Open();
+            //                string query1 =
+            //                    "insert into tblVendor (V_Name, UserId) values (@d1,@d2)" +
+            //                    "SELECT CONVERT(int,SCOPE_IDENTITY())";
+            //                cmd = new SqlCommand(query1, con);
+            //                cmd.Parameters.AddWithValue("@d1", inpv);
+            //                cmd.Parameters.AddWithValue("@d2", user_id);
+            //                cmd.ExecuteNonQuery();
+            //                con.Close();
+            //                cmbV_Name.Items.Clear();
+            //                Vendor();
+            //                cmbV_Name.SelectedText = inpv;
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            }
+            //        }
+            //    }
+            //}
+            //else
+            //{
+
                 try
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
                     cmd = con.CreateCommand();
                     cmd.CommandText = "SELECT V_Id from tblVendor WHERE V_Name= '" + cmbV_Name.Text + "'";
-
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read())
                     {
                         v_id = rdr.GetInt32(0);
+                    }
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+
+
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = con.CreateCommand();
+                    string ctk = "SELECT V_Id from tblVendor WHERE V_Name=@find";
+                    cmd = new SqlCommand(ctk);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "V_Name"));
+                    cmd.Parameters["@find"].Value = cmbV_Name.Text;
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        VendorNotextBox.Text = rdr.GetValue(0).ToString();
                     }
                     if ((rdr != null))
                     {
@@ -514,7 +539,7 @@ namespace AssetManagementSystem
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
+        
 
 
         private void cmbUnitname_SelectedIndexChanged(object sender, EventArgs e)
@@ -547,12 +572,12 @@ namespace AssetManagementSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cmbStability.Text))
-            {
-                MessageBox.Show("Please  Select Stability", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //if (string.IsNullOrWhiteSpace(cmbStability.Text))
+            //{
+            //    MessageBox.Show("Please  Select Stability", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
-            else if (string.IsNullOrWhiteSpace(cmbTypeOfAsset.Text))
+            if (string.IsNullOrWhiteSpace(cmbTypeOfAsset.Text))
             {
                 MessageBox.Show("Please  Select Asset Type", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -615,7 +640,7 @@ namespace AssetManagementSystem
                     con.Close();
                     MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
-                    Stability();
+                    //Stability();
                     Unit();
                     Vendor();
                 }
@@ -629,8 +654,8 @@ namespace AssetManagementSystem
         private void ClearData()
         {
             dateTimePicker1.ResetText();
-            cmbStability.Items.Clear();
-            cmbStability.SelectedIndex = -1;
+            //cmbStability.Items.Clear();
+            //cmbStability.SelectedIndex = -1;
 
             cmbTypeOfAsset.Items.Clear();
             cmbTypeOfAsset.SelectedIndex = -1;
@@ -642,6 +667,7 @@ namespace AssetManagementSystem
 
             cmbV_Name.Items.Clear();
             cmbV_Name.SelectedIndex = -1;
+            VendorNotextBox.Clear();
 
             txtInvoiceNo.Clear();
 
