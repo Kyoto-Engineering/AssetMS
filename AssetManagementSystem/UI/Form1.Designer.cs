@@ -135,7 +135,7 @@
             this.cmbTypeOfAsset.FormattingEnabled = true;
             this.cmbTypeOfAsset.Location = new System.Drawing.Point(179, 214);
             this.cmbTypeOfAsset.Name = "cmbTypeOfAsset";
-            this.cmbTypeOfAsset.Size = new System.Drawing.Size(223, 30);
+            this.cmbTypeOfAsset.Size = new System.Drawing.Size(334, 30);
             this.cmbTypeOfAsset.TabIndex = 26;
             this.cmbTypeOfAsset.SelectedIndexChanged += new System.EventHandler(this.cmbTypeOfAsset_SelectedIndexChanged);
             // 
@@ -168,7 +168,7 @@
             this.cmbNameOfAsset.FormattingEnabled = true;
             this.cmbNameOfAsset.Location = new System.Drawing.Point(179, 252);
             this.cmbNameOfAsset.Name = "cmbNameOfAsset";
-            this.cmbNameOfAsset.Size = new System.Drawing.Size(223, 30);
+            this.cmbNameOfAsset.Size = new System.Drawing.Size(334, 30);
             this.cmbNameOfAsset.TabIndex = 37;
             this.cmbNameOfAsset.SelectedIndexChanged += new System.EventHandler(this.cmbNameOfAsset_SelectedIndexChanged);
             // 
