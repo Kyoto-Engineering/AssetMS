@@ -30,10 +30,10 @@
         {
             this.lblCategoryName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TypeOfAssettextBox = new System.Windows.Forms.TextBox();
-            this.Savebutton = new System.Windows.Forms.Button();
             this.cmbStability = new System.Windows.Forms.ComboBox();
             this.lblStability = new System.Windows.Forms.Label();
+            this.TypeOfAssettextBox = new System.Windows.Forms.TextBox();
+            this.Savebutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -43,7 +43,7 @@
             this.lblCategoryName.AutoSize = true;
             this.lblCategoryName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoryName.ForeColor = System.Drawing.Color.Blue;
-            this.lblCategoryName.Location = new System.Drawing.Point(39, 89);
+            this.lblCategoryName.Location = new System.Drawing.Point(10, 89);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(129, 22);
             this.lblCategoryName.TabIndex = 2;
@@ -61,12 +61,33 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // cmbStability
+            // 
+            this.cmbStability.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStability.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStability.FormattingEnabled = true;
+            this.cmbStability.Location = new System.Drawing.Point(146, 28);
+            this.cmbStability.Name = "cmbStability";
+            this.cmbStability.Size = new System.Drawing.Size(281, 30);
+            this.cmbStability.TabIndex = 21;
+            // 
+            // lblStability
+            // 
+            this.lblStability.AutoSize = true;
+            this.lblStability.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStability.ForeColor = System.Drawing.Color.Blue;
+            this.lblStability.Location = new System.Drawing.Point(52, 32);
+            this.lblStability.Name = "lblStability";
+            this.lblStability.Size = new System.Drawing.Size(87, 22);
+            this.lblStability.TabIndex = 20;
+            this.lblStability.Text = "Stability :";
+            // 
             // TypeOfAssettextBox
             // 
             this.TypeOfAssettextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TypeOfAssettextBox.Location = new System.Drawing.Point(175, 86);
+            this.TypeOfAssettextBox.Location = new System.Drawing.Point(146, 86);
             this.TypeOfAssettextBox.Name = "TypeOfAssettextBox";
-            this.TypeOfAssettextBox.Size = new System.Drawing.Size(248, 29);
+            this.TypeOfAssettextBox.Size = new System.Drawing.Size(281, 29);
             this.TypeOfAssettextBox.TabIndex = 1;
             // 
             // Savebutton
@@ -81,27 +102,6 @@
             this.Savebutton.Text = "Save ";
             this.Savebutton.UseVisualStyleBackColor = false;
             this.Savebutton.Click += new System.EventHandler(this.Savebutton_Click);
-            // 
-            // cmbStability
-            // 
-            this.cmbStability.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStability.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbStability.FormattingEnabled = true;
-            this.cmbStability.Location = new System.Drawing.Point(175, 28);
-            this.cmbStability.Name = "cmbStability";
-            this.cmbStability.Size = new System.Drawing.Size(248, 30);
-            this.cmbStability.TabIndex = 21;
-            // 
-            // lblStability
-            // 
-            this.lblStability.AutoSize = true;
-            this.lblStability.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStability.ForeColor = System.Drawing.Color.Blue;
-            this.lblStability.Location = new System.Drawing.Point(81, 32);
-            this.lblStability.Name = "lblStability";
-            this.lblStability.Size = new System.Drawing.Size(87, 22);
-            this.lblStability.TabIndex = 20;
-            this.lblStability.Text = "Stability :";
             // 
             // label1
             // 
@@ -118,6 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(660, 367);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);

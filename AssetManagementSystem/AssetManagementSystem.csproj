@@ -87,12 +87,25 @@
     <Compile Include="UI\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmTypeOfAssetCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmTypeOfAssetCreation.Designer.cs">
+      <DependentUpon>frmTypeOfAssetCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmVendorCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmVendorCreation.Designer.cs">
+      <DependentUpon>frmVendorCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MainUI1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\MainUI1.Designer.cs">
       <DependentUpon>MainUI1.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Vendor.cs" />
     <EmbeddedResource Include="LogInUI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +130,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmTypeOfAssetCreation.resx">
+      <DependentUpon>frmTypeOfAssetCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmVendorCreation.resx">
+      <DependentUpon>frmVendorCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainUI1.resx">
       <DependentUpon>MainUI1.cs</DependentUpon>
