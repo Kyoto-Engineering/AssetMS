@@ -653,10 +653,10 @@ namespace AssetManagementSystem.UI
                 Regex mRegxExpression;
                 Regex mRegxExpression1;
 
-                mRegxExpression = new Regex (@"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$") ;
+                mRegxExpression = new Regex(@"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$");
                 mRegxExpression1 = new Regex(@"^(www.)[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$");
 
-                if ((!mRegxExpression.IsMatch(urlAddress)) &&  (!mRegxExpression1.IsMatch(urlAddress)))
+                if ((!mRegxExpression.IsMatch(urlAddress)) && (!mRegxExpression1.IsMatch(urlAddress)))
                 {
 
                     MessageBox.Show("Please type your  valid Url Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -664,6 +664,8 @@ namespace AssetManagementSystem.UI
                     WebServiceUrltextBox.Focus();
 
                 }
+            }
+        }
 
                 
 
