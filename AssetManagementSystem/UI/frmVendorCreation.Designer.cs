@@ -103,9 +103,11 @@
             // 
             this.PhonetextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PhonetextBox.Location = new System.Drawing.Point(177, 54);
+            this.PhonetextBox.MaxLength = 11;
             this.PhonetextBox.Name = "PhonetextBox";
             this.PhonetextBox.Size = new System.Drawing.Size(262, 29);
-            this.PhonetextBox.TabIndex = 24;
+            this.PhonetextBox.TabIndex = 1;
+            this.PhonetextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhonetextBox_KeyPress);
             // 
             // label4
             // 
@@ -124,7 +126,8 @@
             this.EmailAddresstextBox.Location = new System.Drawing.Point(177, 88);
             this.EmailAddresstextBox.Name = "EmailAddresstextBox";
             this.EmailAddresstextBox.Size = new System.Drawing.Size(262, 29);
-            this.EmailAddresstextBox.TabIndex = 22;
+            this.EmailAddresstextBox.TabIndex = 2;
+            this.EmailAddresstextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EmailAddresstextBox_Validating);
             // 
             // label1
             // 
@@ -143,7 +146,8 @@
             this.WebServiceUrltextBox.Location = new System.Drawing.Point(177, 122);
             this.WebServiceUrltextBox.Name = "WebServiceUrltextBox";
             this.WebServiceUrltextBox.Size = new System.Drawing.Size(262, 29);
-            this.WebServiceUrltextBox.TabIndex = 20;
+            this.WebServiceUrltextBox.TabIndex = 3;
+            this.WebServiceUrltextBox.Leave += new System.EventHandler(this.WebServiceUrltextBox_Leave);
             // 
             // label3
             // 
@@ -162,7 +166,8 @@
             this.VendorNametextBox.Location = new System.Drawing.Point(177, 19);
             this.VendorNametextBox.Name = "VendorNametextBox";
             this.VendorNametextBox.Size = new System.Drawing.Size(262, 29);
-            this.VendorNametextBox.TabIndex = 16;
+            this.VendorNametextBox.TabIndex = 0;
+            this.VendorNametextBox.Leave += new System.EventHandler(this.VendorNametextBox_Leave);
             // 
             // label2
             // 
@@ -218,7 +223,7 @@
             this.txtRABlock.Location = new System.Drawing.Point(172, 104);
             this.txtRABlock.Name = "txtRABlock";
             this.txtRABlock.Size = new System.Drawing.Size(172, 26);
-            this.txtRABlock.TabIndex = 4;
+            this.txtRABlock.TabIndex = 3;
             // 
             // cmbRAPost
             // 
@@ -227,7 +232,7 @@
             this.cmbRAPost.Location = new System.Drawing.Point(472, 119);
             this.cmbRAPost.Name = "cmbRAPost";
             this.cmbRAPost.Size = new System.Drawing.Size(196, 30);
-            this.cmbRAPost.TabIndex = 10;
+            this.cmbRAPost.TabIndex = 9;
             this.cmbRAPost.SelectedIndexChanged += new System.EventHandler(this.cmbRAPost_SelectedIndexChanged);
             // 
             // label44
@@ -266,7 +271,7 @@
             this.cmbRADivision.Location = new System.Drawing.Point(470, 20);
             this.cmbRADivision.Name = "cmbRADivision";
             this.cmbRADivision.Size = new System.Drawing.Size(198, 30);
-            this.cmbRADivision.TabIndex = 7;
+            this.cmbRADivision.TabIndex = 6;
             this.cmbRADivision.SelectedIndexChanged += new System.EventHandler(this.cmbRADivision_SelectedIndexChanged);
             // 
             // label41
@@ -315,7 +320,7 @@
             this.cmbRAThana.Location = new System.Drawing.Point(471, 85);
             this.cmbRAThana.Name = "cmbRAThana";
             this.cmbRAThana.Size = new System.Drawing.Size(197, 30);
-            this.cmbRAThana.TabIndex = 9;
+            this.cmbRAThana.TabIndex = 8;
             this.cmbRAThana.SelectedIndexChanged += new System.EventHandler(this.cmbRAThana_SelectedIndexChanged);
             // 
             // txtRAContactNo
@@ -325,7 +330,8 @@
             this.txtRAContactNo.MaxLength = 11;
             this.txtRAContactNo.Name = "txtRAContactNo";
             this.txtRAContactNo.Size = new System.Drawing.Size(171, 26);
-            this.txtRAContactNo.TabIndex = 6;
+            this.txtRAContactNo.TabIndex = 5;
+            this.txtRAContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRAContactNo_KeyPress);
             // 
             // label26
             // 
@@ -345,7 +351,7 @@
             this.cmbRADistrict.Location = new System.Drawing.Point(470, 54);
             this.cmbRADistrict.Name = "cmbRADistrict";
             this.cmbRADistrict.Size = new System.Drawing.Size(198, 27);
-            this.cmbRADistrict.TabIndex = 8;
+            this.cmbRADistrict.TabIndex = 7;
             this.cmbRADistrict.SelectedIndexChanged += new System.EventHandler(this.cmbRADistrict_SelectedIndexChanged);
             // 
             // label21
@@ -365,7 +371,7 @@
             this.txtRAPostCode.Name = "txtRAPostCode";
             this.txtRAPostCode.ReadOnly = true;
             this.txtRAPostCode.Size = new System.Drawing.Size(196, 29);
-            this.txtRAPostCode.TabIndex = 11;
+            this.txtRAPostCode.TabIndex = 10;
             // 
             // txtRAArea
             // 
@@ -373,7 +379,7 @@
             this.txtRAArea.Location = new System.Drawing.Point(173, 133);
             this.txtRAArea.Name = "txtRAArea";
             this.txtRAArea.Size = new System.Drawing.Size(171, 26);
-            this.txtRAArea.TabIndex = 5;
+            this.txtRAArea.TabIndex = 4;
             // 
             // label20
             // 
@@ -411,7 +417,7 @@
             this.txtRARoadNo.Location = new System.Drawing.Point(173, 75);
             this.txtRARoadNo.Name = "txtRARoadNo";
             this.txtRARoadNo.Size = new System.Drawing.Size(172, 26);
-            this.txtRARoadNo.TabIndex = 3;
+            this.txtRARoadNo.TabIndex = 2;
             // 
             // txtRAHouseNo
             // 
@@ -419,7 +425,7 @@
             this.txtRAHouseNo.Location = new System.Drawing.Point(173, 46);
             this.txtRAHouseNo.Name = "txtRAHouseNo";
             this.txtRAHouseNo.Size = new System.Drawing.Size(172, 26);
-            this.txtRAHouseNo.TabIndex = 2;
+            this.txtRAHouseNo.TabIndex = 1;
             // 
             // txtRAFlatNo
             // 
@@ -427,7 +433,7 @@
             this.txtRAFlatNo.Location = new System.Drawing.Point(173, 17);
             this.txtRAFlatNo.Name = "txtRAFlatNo";
             this.txtRAFlatNo.Size = new System.Drawing.Size(172, 26);
-            this.txtRAFlatNo.TabIndex = 1;
+            this.txtRAFlatNo.TabIndex = 0;
             // 
             // label17
             // 

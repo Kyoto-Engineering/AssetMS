@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AssetManagementSystem.DbGateway;
 using AssetManagementSystem.LogInUI;
+using System.Text.RegularExpressions;
 
 namespace AssetManagementSystem.UI
 {
@@ -142,6 +143,27 @@ namespace AssetManagementSystem.UI
             this.Hide();
             MainUI1 frm = new MainUI1();
             frm.Show();
+        }
+
+        private void TypeOfAssettextBox_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TypeOfAssettextBox.Text))
+            {
+                string vendorname = TypeOfAssettextBox.Text.Trim();
+                Regex mRegxExpression;
+                int Minlen = 3;
+
+                mRegxExpression = new Regex(@"^[A-Za-z]+[\s][A-Za-z]+[.][A-Za-z]+$");
+
+                if ((!mRegxExpression.IsMatch(vendorname)) && (!(TypeOfAssettextBox.Text.Length >= Minlen)))
+                {
+
+                    MessageBox.Show("Please type your  valid Asset type.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TypeOfAssettextBox.Clear();
+                    TypeOfAssettextBox.Focus();
+
+                }
+            }
         }
 
     }

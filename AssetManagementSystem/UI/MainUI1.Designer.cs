@@ -66,7 +66,7 @@
             this.btnRegistration.Location = new System.Drawing.Point(25, 396);
             this.btnRegistration.Name = "btnRegistration";
             this.btnRegistration.Size = new System.Drawing.Size(122, 75);
-            this.btnRegistration.TabIndex = 2;
+            this.btnRegistration.TabIndex = 4;
             this.btnRegistration.Text = "Registration";
             this.btnRegistration.UseVisualStyleBackColor = true;
             this.btnRegistration.Click += new System.EventHandler(this.btnRegistration_Click);
@@ -90,7 +90,7 @@
             this.VendorCreationbutton.Location = new System.Drawing.Point(25, 228);
             this.VendorCreationbutton.Name = "VendorCreationbutton";
             this.VendorCreationbutton.Size = new System.Drawing.Size(122, 81);
-            this.VendorCreationbutton.TabIndex = 4;
+            this.VendorCreationbutton.TabIndex = 2;
             this.VendorCreationbutton.Text = "Vendor/ Supplier Registration";
             this.VendorCreationbutton.UseVisualStyleBackColor = true;
             this.VendorCreationbutton.Click += new System.EventHandler(this.VendorCreationbutton_Click);
@@ -102,7 +102,7 @@
             this.AssetTypeCreationbutton.Location = new System.Drawing.Point(25, 153);
             this.AssetTypeCreationbutton.Name = "AssetTypeCreationbutton";
             this.AssetTypeCreationbutton.Size = new System.Drawing.Size(122, 67);
-            this.AssetTypeCreationbutton.TabIndex = 5;
+            this.AssetTypeCreationbutton.TabIndex = 1;
             this.AssetTypeCreationbutton.Text = "Asset Type Creation";
             this.AssetTypeCreationbutton.UseVisualStyleBackColor = true;
             this.AssetTypeCreationbutton.Click += new System.EventHandler(this.AssetTypeCreationbutton_Click);
