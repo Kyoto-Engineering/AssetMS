@@ -72,6 +72,13 @@ namespace AssetManagementSystem.UI
         {
 
         }
+
+        private void ReportButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ReportUI frm = new ReportUI();
+            frm.Show();
+        }
    
     }
 }
