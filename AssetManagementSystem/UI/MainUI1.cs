@@ -67,6 +67,11 @@ namespace AssetManagementSystem.UI
             VendorGrid frm = new VendorGrid();
             frm.Show();
         }
+
+        private void MainUI1_Load(object sender, EventArgs e)
+        {
+
+        }
    
     }
 }

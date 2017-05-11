@@ -31,7 +31,6 @@
             this.CreateAssetButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegistration = new System.Windows.Forms.Button();
-            this.Allowancebutton = new System.Windows.Forms.Button();
             this.VendorCreationbutton = new System.Windows.Forms.Button();
             this.AssetTypeCreationbutton = new System.Windows.Forms.Button();
             this.VendorDetailsbutton = new System.Windows.Forms.Button();
@@ -42,7 +41,7 @@
             this.CreateAssetButton.BackColor = System.Drawing.Color.NavajoWhite;
             this.CreateAssetButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateAssetButton.ForeColor = System.Drawing.Color.Crimson;
-            this.CreateAssetButton.Location = new System.Drawing.Point(25, 78);
+            this.CreateAssetButton.Location = new System.Drawing.Point(25, 108);
             this.CreateAssetButton.Name = "CreateAssetButton";
             this.CreateAssetButton.Size = new System.Drawing.Size(122, 55);
             this.CreateAssetButton.TabIndex = 0;
@@ -66,7 +65,7 @@
             this.btnRegistration.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnRegistration.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistration.ForeColor = System.Drawing.Color.Crimson;
-            this.btnRegistration.Location = new System.Drawing.Point(25, 440);
+            this.btnRegistration.Location = new System.Drawing.Point(25, 397);
             this.btnRegistration.Name = "btnRegistration";
             this.btnRegistration.Size = new System.Drawing.Size(122, 61);
             this.btnRegistration.TabIndex = 2;
@@ -74,25 +73,12 @@
             this.btnRegistration.UseVisualStyleBackColor = false;
             this.btnRegistration.Click += new System.EventHandler(this.btnRegistration_Click);
             // 
-            // Allowancebutton
-            // 
-            this.Allowancebutton.BackColor = System.Drawing.Color.NavajoWhite;
-            this.Allowancebutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Allowancebutton.ForeColor = System.Drawing.Color.Crimson;
-            this.Allowancebutton.Location = new System.Drawing.Point(25, 371);
-            this.Allowancebutton.Name = "Allowancebutton";
-            this.Allowancebutton.Size = new System.Drawing.Size(122, 57);
-            this.Allowancebutton.TabIndex = 3;
-            this.Allowancebutton.Text = "Asset \r\nAllowance";
-            this.Allowancebutton.UseVisualStyleBackColor = false;
-            this.Allowancebutton.Click += new System.EventHandler(this.Allowancebutton_Click);
-            // 
             // VendorCreationbutton
             // 
             this.VendorCreationbutton.BackColor = System.Drawing.Color.NavajoWhite;
             this.VendorCreationbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VendorCreationbutton.ForeColor = System.Drawing.Color.Crimson;
-            this.VendorCreationbutton.Location = new System.Drawing.Point(25, 214);
+            this.VendorCreationbutton.Location = new System.Drawing.Point(25, 243);
             this.VendorCreationbutton.Name = "VendorCreationbutton";
             this.VendorCreationbutton.Size = new System.Drawing.Size(122, 75);
             this.VendorCreationbutton.TabIndex = 4;
@@ -105,7 +91,7 @@
             this.AssetTypeCreationbutton.BackColor = System.Drawing.Color.NavajoWhite;
             this.AssetTypeCreationbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AssetTypeCreationbutton.ForeColor = System.Drawing.Color.Crimson;
-            this.AssetTypeCreationbutton.Location = new System.Drawing.Point(25, 146);
+            this.AssetTypeCreationbutton.Location = new System.Drawing.Point(25, 173);
             this.AssetTypeCreationbutton.Name = "AssetTypeCreationbutton";
             this.AssetTypeCreationbutton.Size = new System.Drawing.Size(122, 57);
             this.AssetTypeCreationbutton.TabIndex = 5;
@@ -118,7 +104,7 @@
             this.VendorDetailsbutton.BackColor = System.Drawing.Color.NavajoWhite;
             this.VendorDetailsbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VendorDetailsbutton.ForeColor = System.Drawing.Color.Crimson;
-            this.VendorDetailsbutton.Location = new System.Drawing.Point(25, 303);
+            this.VendorDetailsbutton.Location = new System.Drawing.Point(25, 329);
             this.VendorDetailsbutton.Name = "VendorDetailsbutton";
             this.VendorDetailsbutton.Size = new System.Drawing.Size(122, 57);
             this.VendorDetailsbutton.TabIndex = 6;
@@ -135,7 +121,6 @@
             this.Controls.Add(this.VendorDetailsbutton);
             this.Controls.Add(this.AssetTypeCreationbutton);
             this.Controls.Add(this.VendorCreationbutton);
-            this.Controls.Add(this.Allowancebutton);
             this.Controls.Add(this.btnRegistration);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CreateAssetButton);
@@ -143,6 +128,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainUI1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainUI1_FormClosed);
+            this.Load += new System.EventHandler(this.MainUI1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,7 +140,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox lblUser;
         private System.Windows.Forms.Button btnRegistration;
-        private System.Windows.Forms.Button Allowancebutton;
         private System.Windows.Forms.Button VendorCreationbutton;
         private System.Windows.Forms.Button AssetTypeCreationbutton;
         private System.Windows.Forms.Button VendorDetailsbutton;
