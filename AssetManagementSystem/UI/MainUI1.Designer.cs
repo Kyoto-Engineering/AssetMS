@@ -34,6 +34,7 @@
             this.VendorCreationbutton = new System.Windows.Forms.Button();
             this.AssetTypeCreationbutton = new System.Windows.Forms.Button();
             this.VendorDetailsbutton = new System.Windows.Forms.Button();
+            this.ReportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CreateAssetButton
@@ -65,7 +66,7 @@
             this.btnRegistration.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnRegistration.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistration.ForeColor = System.Drawing.Color.Crimson;
-            this.btnRegistration.Location = new System.Drawing.Point(25, 397);
+            this.btnRegistration.Location = new System.Drawing.Point(25, 472);
             this.btnRegistration.Name = "btnRegistration";
             this.btnRegistration.Size = new System.Drawing.Size(122, 61);
             this.btnRegistration.TabIndex = 2;
@@ -112,12 +113,26 @@
             this.VendorDetailsbutton.UseVisualStyleBackColor = false;
             this.VendorDetailsbutton.Click += new System.EventHandler(this.VendorDetailsbutton_Click);
             // 
+            // ReportButton
+            // 
+            this.ReportButton.BackColor = System.Drawing.Color.NavajoWhite;
+            this.ReportButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReportButton.ForeColor = System.Drawing.Color.Crimson;
+            this.ReportButton.Location = new System.Drawing.Point(25, 392);
+            this.ReportButton.Name = "ReportButton";
+            this.ReportButton.Size = new System.Drawing.Size(122, 61);
+            this.ReportButton.TabIndex = 7;
+            this.ReportButton.Text = "Report";
+            this.ReportButton.UseVisualStyleBackColor = false;
+            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
+            // 
             // MainUI1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(988, 598);
+            this.Controls.Add(this.ReportButton);
             this.Controls.Add(this.VendorDetailsbutton);
             this.Controls.Add(this.AssetTypeCreationbutton);
             this.Controls.Add(this.VendorCreationbutton);
@@ -143,5 +158,6 @@
         private System.Windows.Forms.Button VendorCreationbutton;
         private System.Windows.Forms.Button AssetTypeCreationbutton;
         private System.Windows.Forms.Button VendorDetailsbutton;
+        private System.Windows.Forms.Button ReportButton;
     }
 }
