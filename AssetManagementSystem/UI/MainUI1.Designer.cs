@@ -34,18 +34,20 @@
             this.Allowancebutton = new System.Windows.Forms.Button();
             this.VendorCreationbutton = new System.Windows.Forms.Button();
             this.AssetTypeCreationbutton = new System.Windows.Forms.Button();
+            this.VendorDetailsbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CreateAssetButton
             // 
+            this.CreateAssetButton.BackColor = System.Drawing.Color.NavajoWhite;
             this.CreateAssetButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateAssetButton.ForeColor = System.Drawing.Color.Crimson;
             this.CreateAssetButton.Location = new System.Drawing.Point(25, 78);
             this.CreateAssetButton.Name = "CreateAssetButton";
-            this.CreateAssetButton.Size = new System.Drawing.Size(122, 67);
+            this.CreateAssetButton.Size = new System.Drawing.Size(122, 55);
             this.CreateAssetButton.TabIndex = 0;
             this.CreateAssetButton.Text = "New Asset Entry";
-            this.CreateAssetButton.UseVisualStyleBackColor = true;
+            this.CreateAssetButton.UseVisualStyleBackColor = false;
             this.CreateAssetButton.Click += new System.EventHandler(this.CreateAssetButton_Click);
             // 
             // label1
@@ -61,58 +63,76 @@
             // 
             // btnRegistration
             // 
+            this.btnRegistration.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnRegistration.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistration.ForeColor = System.Drawing.Color.Crimson;
-            this.btnRegistration.Location = new System.Drawing.Point(25, 396);
+            this.btnRegistration.Location = new System.Drawing.Point(25, 440);
             this.btnRegistration.Name = "btnRegistration";
-            this.btnRegistration.Size = new System.Drawing.Size(122, 75);
+            this.btnRegistration.Size = new System.Drawing.Size(122, 61);
             this.btnRegistration.TabIndex = 2;
             this.btnRegistration.Text = "Registration";
-            this.btnRegistration.UseVisualStyleBackColor = true;
+            this.btnRegistration.UseVisualStyleBackColor = false;
             this.btnRegistration.Click += new System.EventHandler(this.btnRegistration_Click);
             // 
             // Allowancebutton
             // 
+            this.Allowancebutton.BackColor = System.Drawing.Color.NavajoWhite;
             this.Allowancebutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Allowancebutton.ForeColor = System.Drawing.Color.Crimson;
-            this.Allowancebutton.Location = new System.Drawing.Point(25, 319);
+            this.Allowancebutton.Location = new System.Drawing.Point(25, 371);
             this.Allowancebutton.Name = "Allowancebutton";
-            this.Allowancebutton.Size = new System.Drawing.Size(122, 67);
+            this.Allowancebutton.Size = new System.Drawing.Size(122, 57);
             this.Allowancebutton.TabIndex = 3;
             this.Allowancebutton.Text = "Asset \r\nAllowance";
-            this.Allowancebutton.UseVisualStyleBackColor = true;
+            this.Allowancebutton.UseVisualStyleBackColor = false;
             this.Allowancebutton.Click += new System.EventHandler(this.Allowancebutton_Click);
             // 
             // VendorCreationbutton
             // 
+            this.VendorCreationbutton.BackColor = System.Drawing.Color.NavajoWhite;
             this.VendorCreationbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VendorCreationbutton.ForeColor = System.Drawing.Color.Crimson;
-            this.VendorCreationbutton.Location = new System.Drawing.Point(25, 228);
+            this.VendorCreationbutton.Location = new System.Drawing.Point(25, 214);
             this.VendorCreationbutton.Name = "VendorCreationbutton";
-            this.VendorCreationbutton.Size = new System.Drawing.Size(122, 81);
+            this.VendorCreationbutton.Size = new System.Drawing.Size(122, 75);
             this.VendorCreationbutton.TabIndex = 4;
             this.VendorCreationbutton.Text = "Vendor/ Supplier Registration";
-            this.VendorCreationbutton.UseVisualStyleBackColor = true;
+            this.VendorCreationbutton.UseVisualStyleBackColor = false;
             this.VendorCreationbutton.Click += new System.EventHandler(this.VendorCreationbutton_Click);
             // 
             // AssetTypeCreationbutton
             // 
+            this.AssetTypeCreationbutton.BackColor = System.Drawing.Color.NavajoWhite;
             this.AssetTypeCreationbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AssetTypeCreationbutton.ForeColor = System.Drawing.Color.Crimson;
-            this.AssetTypeCreationbutton.Location = new System.Drawing.Point(25, 153);
+            this.AssetTypeCreationbutton.Location = new System.Drawing.Point(25, 146);
             this.AssetTypeCreationbutton.Name = "AssetTypeCreationbutton";
-            this.AssetTypeCreationbutton.Size = new System.Drawing.Size(122, 67);
+            this.AssetTypeCreationbutton.Size = new System.Drawing.Size(122, 57);
             this.AssetTypeCreationbutton.TabIndex = 5;
             this.AssetTypeCreationbutton.Text = "Asset Type Creation";
-            this.AssetTypeCreationbutton.UseVisualStyleBackColor = true;
+            this.AssetTypeCreationbutton.UseVisualStyleBackColor = false;
             this.AssetTypeCreationbutton.Click += new System.EventHandler(this.AssetTypeCreationbutton_Click);
+            // 
+            // VendorDetailsbutton
+            // 
+            this.VendorDetailsbutton.BackColor = System.Drawing.Color.NavajoWhite;
+            this.VendorDetailsbutton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VendorDetailsbutton.ForeColor = System.Drawing.Color.Crimson;
+            this.VendorDetailsbutton.Location = new System.Drawing.Point(25, 303);
+            this.VendorDetailsbutton.Name = "VendorDetailsbutton";
+            this.VendorDetailsbutton.Size = new System.Drawing.Size(122, 57);
+            this.VendorDetailsbutton.TabIndex = 6;
+            this.VendorDetailsbutton.Text = "Vendor Details";
+            this.VendorDetailsbutton.UseVisualStyleBackColor = false;
+            this.VendorDetailsbutton.Click += new System.EventHandler(this.VendorDetailsbutton_Click);
             // 
             // MainUI1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(822, 490);
+            this.ClientSize = new System.Drawing.Size(988, 598);
+            this.Controls.Add(this.VendorDetailsbutton);
             this.Controls.Add(this.AssetTypeCreationbutton);
             this.Controls.Add(this.VendorCreationbutton);
             this.Controls.Add(this.Allowancebutton);
@@ -137,5 +157,6 @@
         private System.Windows.Forms.Button Allowancebutton;
         private System.Windows.Forms.Button VendorCreationbutton;
         private System.Windows.Forms.Button AssetTypeCreationbutton;
+        private System.Windows.Forms.Button VendorDetailsbutton;
     }
 }

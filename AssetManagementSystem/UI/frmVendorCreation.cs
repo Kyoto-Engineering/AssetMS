@@ -21,7 +21,7 @@ namespace AssetManagementSystem.UI
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
         public string user_id, postofficeIdRA, divisionIdRA, districtIdRA, thanaIdRA;
-        public int currentVendorId, affectedRows1, rAdistrictid;
+        public int currentVendorId, affectedRows1, rAdistrictid, companytypeid;
 
         public frmVendorCreation()
         {
@@ -32,6 +32,29 @@ namespace AssetManagementSystem.UI
         {
             user_id = frmLogin.uId.ToString();
             FillDivisionCombo();
+            FillVendorCompany();
+        }
+
+        private void FillVendorCompany()
+        {
+            try
+            {
+
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string cta = "select CompanyTypeName from VendorCompanyType order by CompanyTypeName asc";
+                cmd = new SqlCommand(cta);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    CompanyTypecomboBox.Items.Add(rdr.GetValue(0).ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void FillDivisionCombo()
@@ -41,7 +64,7 @@ namespace AssetManagementSystem.UI
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select RTRIM(Divisions.Division) from Divisions  order by Divisions.Division_ID desc ";
+                string ct = "select RTRIM(Divisions.Division) from Divisions  order by Divisions.Division asc ";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -146,7 +169,15 @@ namespace AssetManagementSystem.UI
         {
             bool validate = true;
 
-            if (string.IsNullOrEmpty(VendorNametextBox.Text))
+             if (string.IsNullOrEmpty(CompanyTypecomboBox.Text))
+            {
+                MessageBox.Show(@"Please select Company Type", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                validate = false;
+                CompanyTypecomboBox.Focus();
+            }
+
+             else if (string.IsNullOrEmpty(VendorNametextBox.Text))
             {
                 MessageBox.Show(@"Please enter Vendor  name", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -155,27 +186,27 @@ namespace AssetManagementSystem.UI
             }
             else if (string.IsNullOrEmpty(cmbRADivision.Text))
             {
-                MessageBox.Show("Please select division", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Please select division", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 validate = false;
                 cmbRADivision.Focus();
             }
             else if (string.IsNullOrWhiteSpace(cmbRADistrict.Text))
             {
-                MessageBox.Show("Please Select district", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Please Select district", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 validate = false;
                 cmbRADistrict.Focus();
             }
             else if (string.IsNullOrWhiteSpace(cmbRAThana.Text))
             {
-                MessageBox.Show("Please select Thana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Please select Thana", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 validate = false;
                 cmbRAThana.Focus();
             }
 
             else if (string.IsNullOrWhiteSpace(cmbRAPost.Text))
             {
-                MessageBox.Show("Please Select Post Office", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Please Select Post Office", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 validate = false;
                 cmbRAPost.Focus();
 
@@ -193,7 +224,7 @@ namespace AssetManagementSystem.UI
             if (!string.IsNullOrEmpty(VendorNametextBox.Text) && string.IsNullOrEmpty(PhonetextBox.Text) &&
                 string.IsNullOrEmpty(EmailAddresstextBox.Text) && string.IsNullOrEmpty(WebServiceUrltextBox.Text))
             {
-                MessageBox.Show(@"Please insert phone or email or web service", "Error",
+                MessageBox.Show(@"Please insert phone or email or web service", @"Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (ValidateControlls())
@@ -204,7 +235,7 @@ namespace AssetManagementSystem.UI
                     SaveVendor();
                     SaveVendorAddress("VendorAddress");
 
-                    MessageBox.Show("Saved successfully", "Record", MessageBoxButtons.OK,
+                    MessageBox.Show(@"Saved successfully", @"Record", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     ResetAll();
                 }
@@ -217,6 +248,8 @@ namespace AssetManagementSystem.UI
 
         public void ResetAll()
         {
+            //CompanyTypecomboBox.Items.Clear();
+            CompanyTypecomboBox.SelectedIndex = -1;
             VendorNametextBox.Clear();
             PhonetextBox.Clear();
             EmailAddresstextBox.Clear();
@@ -237,6 +270,7 @@ namespace AssetManagementSystem.UI
             cmbRAThana.SelectedIndex = -1;
             cmbRADistrict.SelectedIndex = -1;
             cmbRADivision.SelectedIndex = -1;
+            cmbRADistrict.Enabled =false;
         }
 
         private void SaveVendor()
@@ -245,10 +279,10 @@ namespace AssetManagementSystem.UI
             con = new SqlConnection(cs.DBConn);
             con.Open();
             string query =
-                "INSERT INTO tblVendor (V_Name, UserId, Phone, Email, WebUrl) VALUES(@nname, @d1, @nphone, @nemail, @nweburl)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
+                "INSERT INTO tblVendor (V_Name, UserId, Phone, Email, WebUrl,CompanyTypeId) VALUES(@nname, @d1, @nphone, @nemail, @nweburl,@d2)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
             
 
-            cmd = new SqlCommand(query, con);
+            cmd = new SqlCommand(query, con);   
 
             cmd.Parameters.AddWithValue("@nname", newname);
             cmd.Parameters.AddWithValue("@d1", user_id);
@@ -257,7 +291,8 @@ namespace AssetManagementSystem.UI
             cmd.Parameters.Add(new SqlParameter("@nemail",
                 string.IsNullOrEmpty(EmailAddresstextBox.Text) ? (object) DBNull.Value : EmailAddresstextBox.Text));
             cmd.Parameters.Add(new SqlParameter("@nweburl",
-                string.IsNullOrEmpty(WebServiceUrltextBox.Text) ? (object) DBNull.Value : WebServiceUrltextBox.Text));        
+                string.IsNullOrEmpty(WebServiceUrltextBox.Text) ? (object) DBNull.Value : WebServiceUrltextBox.Text));
+            cmd.Parameters.AddWithValue("@d2", companytypeid);
             currentVendorId = (int) (cmd.ExecuteScalar());
             con.Close();
         }
@@ -298,6 +333,7 @@ namespace AssetManagementSystem.UI
 
         private void cmbRADivision_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cmbRADistrict.Enabled = true;
             cmbRADistrict.Items.Clear();
             cmbRADistrict.ResetText();
             cmbRAThana.Items.Clear();
@@ -347,7 +383,7 @@ namespace AssetManagementSystem.UI
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string ct = "select RTRIM(Districts.District) from Districts  Where Districts.Division_ID = '" +
-                            divisionIdRA + "' order by Districts.Division_ID desc";
+                            divisionIdRA + "' order by Districts.District asc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -410,7 +446,7 @@ namespace AssetManagementSystem.UI
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string ct = "select RTRIM(Thanas.Thana) from Thanas  Where Thanas.D_ID = '" + districtIdRA +
-                            "' order by Thanas.D_ID desc";
+                            "' order by Thanas.Thana asc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -487,7 +523,7 @@ namespace AssetManagementSystem.UI
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" +
-                            thanaIdRA + "' order by PostOffice.T_ID desc";
+                            thanaIdRA + "' order by PostOffice.PostOfficeName asc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -536,6 +572,42 @@ namespace AssetManagementSystem.UI
                 }
             }
 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void frmVendorCreation_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            MainUI1 frm = new MainUI1();
+            frm.Show();
+        }
+
+        private void CompanyTypecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT CompanyTypeId from VendorCompanyType WHERE CompanyTypeName= '" + CompanyTypecomboBox.Text + "'";
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    companytypeid = rdr.GetInt32(0);
+                }
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
