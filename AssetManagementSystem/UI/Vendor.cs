@@ -12,7 +12,7 @@ namespace AssetManagementSystem.UI
         private string phone;
         private string email;
         private string weburl;
-
+       
         public string Name
         {
             get { return name; }

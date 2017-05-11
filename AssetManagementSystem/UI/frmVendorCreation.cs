@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AssetManagementSystem.DbGateway;
@@ -20,7 +21,8 @@ namespace AssetManagementSystem.UI
         private SqlDataReader rdr;
         ConnectionString cs = new ConnectionString();
         public string user_id, postofficeIdRA, divisionIdRA, districtIdRA, thanaIdRA;
-        public int currentVendorId, affectedRows1,rAdistrictid;
+        public int currentVendorId, affectedRows1, rAdistrictid;
+
         public frmVendorCreation()
         {
             InitializeComponent();
@@ -56,8 +58,6 @@ namespace AssetManagementSystem.UI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
         private bool ValidateVendor()
         {
             List<Vendor> vendors = new List<Vendor>();
@@ -69,14 +69,10 @@ namespace AssetManagementSystem.UI
                 VendorNametextBox.Text + "'";
             cmd = new SqlCommand(ct3, con);
             rdr = cmd.ExecuteReader();
-            if (rdr.Read() && !rdr.IsDBNull(0))
-            {
-                //string nam = rdr["V_Name"].ToString();
-                //string phn = rdr["Phone"].ToString();
-                //string eml = rdr["Email"].ToString();
-                //string web = rdr["WebUrl"].ToString();
 
-                while (rdr.Read())
+            while (rdr.Read())
+            {
+                if (rdr.HasRows)
                 {
                     Vendor x = new Vendor();
                     x.Name = rdr.GetString(0);
@@ -108,43 +104,39 @@ namespace AssetManagementSystem.UI
                     {
                         x.Weburl = null;
                     }
-                                      
+
                     vendors.Add(x);
                 }
             }
             foreach (Vendor p in vendors)
             {
-                //if ((p.Name == VendorNametextBox.Text && p.Phone != null && p.Phone == PhonetextBox.Text) ||
-                //    (p.Name == VendorNametextBox.Text && p.Email != null && p.Email == EmailAddresstextBox.Text) ||
-                //    (p.Name == VendorNametextBox.Text && p.Weburl != null && p.Weburl == WebServiceUrltextBox.Text))
-                //{
-                    if (p.Name == VendorNametextBox.Text &&
-                        (p.Phone == PhonetextBox.Text || p.Email == EmailAddresstextBox.Text ||
-                         p.Weburl == WebServiceUrltextBox.Text))
+                if (p.Name == VendorNametextBox.Text && p.Phone == PhonetextBox.Text)
+                {
+                    MessageBox.Show(@"This Person Exists,Please Input another one" + "\n" + @"Or Use another Phone",
+                        "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    con.Close();
+                    return true;
+                }
 
-                    {
-                        MessageBox.Show(
-                            @"This Person Exists,Please Input another one" + "\n" + @"Or Use another Phone" + "\n" +
-                            @"Or Use another Email" + "\n" + @"Or Use another Web Service URL", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        con.Close();
-                        return true;
-                    }
-                //}
-                //else if (p.Name == VendorNametextBox.Text && p.Email == EmailAddresstextBox.Text)
-                //{
-                //    MessageBox.Show(@"This Person Exists,Please Input another one" + "\n" + @"Or Use another Email", "Error",
-                //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    con.Close();
-                //    return true;
-                //}
-                //else if (p.Name == VendorNametextBox.Text && p.Weburl == WebServiceUrltextBox.Text)
-                //{
-                //    MessageBox.Show(@"This Person Exists,Please Input another one" + "\n" + @"Or Use another Web Service URL", "Error",
-                //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    con.Close();
-                //    return true;
-                //}
+                if (p.Name == VendorNametextBox.Text && p.Email == EmailAddresstextBox.Text)
+                {
+                    MessageBox.Show(@"This Person Exists,Please Input another one" + "\n" + @"Or Use another Email",
+                        "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    con.Close();
+                    return true;
+                }
+
+                if (p.Name == VendorNametextBox.Text && p.Weburl == WebServiceUrltextBox.Text)
+                {
+                    MessageBox.Show(
+                        @"This Person Exists,Please Input another one" + "\n" + @"Or Use another Web Service URL",
+                        "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    con.Close();
+                    return true;
+                }
             }
             return false;
         }
@@ -154,42 +146,40 @@ namespace AssetManagementSystem.UI
         {
             bool validate = true;
 
-            
-           
-             if (string.IsNullOrEmpty(VendorNametextBox.Text))
+            if (string.IsNullOrEmpty(VendorNametextBox.Text))
             {
                 MessageBox.Show(@"Please enter Vendor  name", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 validate = false;
                 VendorNametextBox.Focus();
             }
-             else if (string.IsNullOrEmpty(cmbRADivision.Text))
+            else if (string.IsNullOrEmpty(cmbRADivision.Text))
             {
                 MessageBox.Show("Please select division", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 validate = false;
                 cmbRADivision.Focus();
             }
-             else if (string.IsNullOrWhiteSpace(cmbRADistrict.Text))
-             {
-                 MessageBox.Show("Please Select district", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (string.IsNullOrWhiteSpace(cmbRADistrict.Text))
+            {
+                MessageBox.Show("Please Select district", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 validate = false;
-                 cmbRADistrict.Focus();
+                cmbRADistrict.Focus();
             }
-             else if (string.IsNullOrWhiteSpace(cmbRAThana.Text))
-             {
-                 MessageBox.Show("Please select Thana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (string.IsNullOrWhiteSpace(cmbRAThana.Text))
+            {
+                MessageBox.Show("Please select Thana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 validate = false;
-                 cmbRAThana.Focus();
+                cmbRAThana.Focus();
             }
 
-             else if (string.IsNullOrWhiteSpace(cmbRAPost.Text))
-             {
-                 MessageBox.Show("Please Select Post Office", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (string.IsNullOrWhiteSpace(cmbRAPost.Text))
+            {
+                MessageBox.Show("Please Select Post Office", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 validate = false;
-                 cmbRAPost.Focus();
+                cmbRAPost.Focus();
 
-             }
+            }
             else if (ValidateVendor())
             {
                 validate = false;
@@ -198,17 +188,19 @@ namespace AssetManagementSystem.UI
             return validate;
         }
 
-
-
-
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (ValidateControlls())
+            if (!string.IsNullOrEmpty(VendorNametextBox.Text) && string.IsNullOrEmpty(PhonetextBox.Text) &&
+                string.IsNullOrEmpty(EmailAddresstextBox.Text) && string.IsNullOrEmpty(WebServiceUrltextBox.Text))
             {
+                MessageBox.Show(@"Please insert phone or email or web service", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (ValidateControlls())
+            {
+
                 try
                 {
-
-
                     SaveVendor();
                     SaveVendorAddress("VendorAddress");
 
@@ -220,13 +212,8 @@ namespace AssetManagementSystem.UI
                 {
                     MessageBox.Show(ex.Message, @"error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } 
             }
-
-
-
-
-
+        }
 
         public void ResetAll()
         {
@@ -236,6 +223,7 @@ namespace AssetManagementSystem.UI
             WebServiceUrltextBox.Clear();
             ResetResidentialAddress();
         }
+
         public void ResetResidentialAddress()
         {
             txtRAFlatNo.Clear();
@@ -254,23 +242,23 @@ namespace AssetManagementSystem.UI
         private void SaveVendor()
         {
             string newname = VendorNametextBox.Text;
-            string newphone = PhonetextBox.Text;
-            string newemail = EmailAddresstextBox.Text;
-            string newweburl = WebServiceUrltextBox.Text;
-            
             con = new SqlConnection(cs.DBConn);
             con.Open();
             string query =
-                "INSERT INTO tblVendor (V_Name, UserId, Phone, Email, WebUrl) VALUES(@nname, @d1, @nphone, @nemail, @nweburl)" + "SELECT CONVERT(int, SCOPE_IDENTITY())"; ;
+                "INSERT INTO tblVendor (V_Name, UserId, Phone, Email, WebUrl) VALUES(@nname, @d1, @nphone, @nemail, @nweburl)" + "SELECT CONVERT(int, SCOPE_IDENTITY())";
             
-             cmd = new SqlCommand(query, con);
 
-             cmd.Parameters.AddWithValue("@nname", newname);
-             cmd.Parameters.AddWithValue("@d1", user_id);
-             cmd.Parameters.AddWithValue("@nphone", (object)newphone ?? DBNull.Value);
-             cmd.Parameters.AddWithValue("@nemail", (object)newemail ?? DBNull.Value);
-             cmd.Parameters.AddWithValue("@nweburl", (object)newweburl ?? DBNull.Value);          
-            currentVendorId = (int)(cmd.ExecuteScalar());
+            cmd = new SqlCommand(query, con);
+
+            cmd.Parameters.AddWithValue("@nname", newname);
+            cmd.Parameters.AddWithValue("@d1", user_id);
+            cmd.Parameters.Add(new SqlParameter("@nphone",
+                string.IsNullOrEmpty(PhonetextBox.Text) ? (object) DBNull.Value : PhonetextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@nemail",
+                string.IsNullOrEmpty(EmailAddresstextBox.Text) ? (object) DBNull.Value : EmailAddresstextBox.Text));
+            cmd.Parameters.Add(new SqlParameter("@nweburl",
+                string.IsNullOrEmpty(WebServiceUrltextBox.Text) ? (object) DBNull.Value : WebServiceUrltextBox.Text));        
+            currentVendorId = (int) (cmd.ExecuteScalar());
             con.Close();
         }
 
@@ -358,7 +346,8 @@ namespace AssetManagementSystem.UI
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select RTRIM(Districts.District) from Districts  Where Districts.Division_ID = '" + divisionIdRA + "' order by Districts.Division_ID desc";
+                string ct = "select RTRIM(Districts.District) from Districts  Where Districts.Division_ID = '" +
+                            divisionIdRA + "' order by Districts.Division_ID desc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -420,7 +409,8 @@ namespace AssetManagementSystem.UI
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select RTRIM(Thanas.Thana) from Thanas  Where Thanas.D_ID = '" + districtIdRA + "' order by Thanas.D_ID desc";
+                string ct = "select RTRIM(Thanas.Thana) from Thanas  Where Thanas.D_ID = '" + districtIdRA +
+                            "' order by Thanas.D_ID desc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -451,7 +441,6 @@ namespace AssetManagementSystem.UI
             if (rdr.Read())
             {
                 rAdistrictid = rdr.GetInt32(0);
-                //districtIdRA = (rdr.GetString(0));
             }
             if ((rdr != null))
             {
@@ -462,12 +451,12 @@ namespace AssetManagementSystem.UI
                 con.Close();
             }
 
-
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" + rAdistrictid + "'";
+                string ctk = "SELECT  RTRIM(Thanas.T_ID)  from Thanas WHERE Thanas.Thana=@find AND Thanas.D_ID='" +
+                             rAdistrictid + "'";
                 cmd = new SqlCommand(ctk);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "Thana"));
@@ -488,19 +477,17 @@ namespace AssetManagementSystem.UI
                     con.Close();
                 }
 
-
                 cmbRAThana.Text = cmbRAThana.Text.Trim();
                 cmbRAPost.Items.Clear();
                 cmbRAPost.ResetText();
-                // cPostOfficeCombo.Text = "";
                 txtRAPostCode.Clear();
                 cmbRAPost.Enabled = true;
                 cmbRAPost.Focus();
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                //string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdC + "' order by PostOffice.T_ID desc";
-                string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" + thanaIdRA + "' order by PostOffice.T_ID desc";
+                string ct = "select RTRIM(PostOffice.PostOfficeName) from PostOffice  Where PostOffice.T_ID = '" +
+                            thanaIdRA + "' order by PostOffice.T_ID desc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -526,7 +513,8 @@ namespace AssetManagementSystem.UI
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ctk = "SELECT  RTRIM(PostOffice.PostOfficeId),RTRIM(PostOffice.PostCode) from PostOffice WHERE PostOffice.PostOfficeName=@find";
+                string ctk =
+                    "SELECT  RTRIM(PostOffice.PostOfficeId),RTRIM(PostOffice.PostCode) from PostOffice WHERE PostOffice.PostOfficeName=@find";
                 cmd = new SqlCommand(ctk);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@find", System.Data.SqlDbType.NVarChar, 50, "PostOfficeName"));
@@ -536,7 +524,6 @@ namespace AssetManagementSystem.UI
                 {
                     postofficeIdRA = (rdr.GetString(0));
                     txtRAPostCode.Text = (rdr.GetString(1));
-
                 }
 
                 if ((rdr != null))
@@ -547,14 +534,12 @@ namespace AssetManagementSystem.UI
                 {
                     con.Close();
                 }
-
-
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }      
     }
 }

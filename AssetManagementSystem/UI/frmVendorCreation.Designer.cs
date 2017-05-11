@@ -30,6 +30,8 @@
         {
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PhonetextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.EmailAddresstextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.WebServiceUrltextBox = new System.Windows.Forms.TextBox();
@@ -65,8 +67,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
-            this.PhonetextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -98,6 +98,25 @@
             this.groupBox1.Size = new System.Drawing.Size(450, 164);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
+            // 
+            // PhonetextBox
+            // 
+            this.PhonetextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhonetextBox.Location = new System.Drawing.Point(177, 54);
+            this.PhonetextBox.Name = "PhonetextBox";
+            this.PhonetextBox.Size = new System.Drawing.Size(262, 29);
+            this.PhonetextBox.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Snow;
+            this.label4.Location = new System.Drawing.Point(102, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 22);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Phone :";
             // 
             // EmailAddresstextBox
             // 
@@ -462,25 +481,6 @@
             this.btnInsert.Text = "Save";
             this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
-            // 
-            // PhonetextBox
-            // 
-            this.PhonetextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhonetextBox.Location = new System.Drawing.Point(177, 54);
-            this.PhonetextBox.Name = "PhonetextBox";
-            this.PhonetextBox.Size = new System.Drawing.Size(262, 29);
-            this.PhonetextBox.TabIndex = 24;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Snow;
-            this.label4.Location = new System.Drawing.Point(102, 58);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 22);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Phone :";
             // 
             // frmVendorCreation
             // 
