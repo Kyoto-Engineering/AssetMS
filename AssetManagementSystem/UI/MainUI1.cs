@@ -60,6 +60,18 @@ namespace AssetManagementSystem.UI
             frmVendorCreation frm = new frmVendorCreation();
             frm.Show();
         }
+
+        private void VendorDetailsbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VendorGrid frm = new VendorGrid();
+            frm.Show();
+        }
+
+        private void MainUI1_Load(object sender, EventArgs e)
+        {
+
+        }
    
     }
 }

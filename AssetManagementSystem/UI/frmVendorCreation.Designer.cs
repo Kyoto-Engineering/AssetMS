@@ -67,6 +67,8 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
+            this.CompanyTypecomboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +78,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(260, 22);
+            this.label5.Location = new System.Drawing.Point(273, 22);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(354, 31);
             this.label5.TabIndex = 13;
@@ -85,6 +87,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.CompanyTypecomboBox);
             this.groupBox1.Controls.Add(this.PhonetextBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.EmailAddresstextBox);
@@ -93,17 +97,21 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.VendorNametextBox);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(167, 77);
+            this.groupBox1.Location = new System.Drawing.Point(210, 78);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 164);
+            this.groupBox1.Size = new System.Drawing.Size(490, 209);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             // 
             // PhonetextBox
             // 
             this.PhonetextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.PhonetextBox.Location = new System.Drawing.Point(177, 54);
             this.PhonetextBox.MaxLength = 11;
+
+            this.PhonetextBox.Location = new System.Drawing.Point(216, 99);
+
             this.PhonetextBox.Name = "PhonetextBox";
             this.PhonetextBox.Size = new System.Drawing.Size(262, 29);
             this.PhonetextBox.TabIndex = 1;
@@ -114,7 +122,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Snow;
-            this.label4.Location = new System.Drawing.Point(102, 58);
+            this.label4.Location = new System.Drawing.Point(141, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 22);
             this.label4.TabIndex = 23;
@@ -123,7 +131,7 @@
             // EmailAddresstextBox
             // 
             this.EmailAddresstextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailAddresstextBox.Location = new System.Drawing.Point(177, 88);
+            this.EmailAddresstextBox.Location = new System.Drawing.Point(216, 133);
             this.EmailAddresstextBox.Name = "EmailAddresstextBox";
             this.EmailAddresstextBox.Size = new System.Drawing.Size(262, 29);
             this.EmailAddresstextBox.TabIndex = 2;
@@ -134,7 +142,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(36, 92);
+            this.label1.Location = new System.Drawing.Point(75, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 22);
             this.label1.TabIndex = 21;
@@ -143,7 +151,7 @@
             // WebServiceUrltextBox
             // 
             this.WebServiceUrltextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WebServiceUrltextBox.Location = new System.Drawing.Point(177, 122);
+            this.WebServiceUrltextBox.Location = new System.Drawing.Point(216, 167);
             this.WebServiceUrltextBox.Name = "WebServiceUrltextBox";
             this.WebServiceUrltextBox.Size = new System.Drawing.Size(262, 29);
             this.WebServiceUrltextBox.TabIndex = 3;
@@ -154,7 +162,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Snow;
-            this.label3.Location = new System.Drawing.Point(8, 126);
+            this.label3.Location = new System.Drawing.Point(47, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(165, 22);
             this.label3.TabIndex = 19;
@@ -163,7 +171,7 @@
             // VendorNametextBox
             // 
             this.VendorNametextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VendorNametextBox.Location = new System.Drawing.Point(177, 19);
+            this.VendorNametextBox.Location = new System.Drawing.Point(216, 64);
             this.VendorNametextBox.Name = "VendorNametextBox";
             this.VendorNametextBox.Size = new System.Drawing.Size(262, 29);
             this.VendorNametextBox.TabIndex = 0;
@@ -174,7 +182,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(43, 23);
+            this.label2.Location = new System.Drawing.Point(82, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 22);
             this.label2.TabIndex = 15;
@@ -211,7 +219,7 @@
             this.groupBox5.Controls.Add(this.label24);
             this.groupBox5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox5.Location = new System.Drawing.Point(88, 247);
+            this.groupBox5.Location = new System.Drawing.Point(123, 287);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(677, 203);
             this.groupBox5.TabIndex = 15;
@@ -480,7 +488,7 @@
             this.btnInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnInsert.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInsert.ForeColor = System.Drawing.Color.Blue;
-            this.btnInsert.Location = new System.Drawing.Point(586, 464);
+            this.btnInsert.Location = new System.Drawing.Point(643, 496);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(118, 62);
             this.btnInsert.TabIndex = 25;
@@ -488,18 +496,42 @@
             this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
+            // CompanyTypecomboBox
+            // 
+            this.CompanyTypecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CompanyTypecomboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompanyTypecomboBox.FormattingEnabled = true;
+            this.CompanyTypecomboBox.Location = new System.Drawing.Point(216, 28);
+            this.CompanyTypecomboBox.Name = "CompanyTypecomboBox";
+            this.CompanyTypecomboBox.Size = new System.Drawing.Size(262, 27);
+            this.CompanyTypecomboBox.TabIndex = 25;
+            this.CompanyTypecomboBox.SelectedIndexChanged += new System.EventHandler(this.CompanyTypecomboBox_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Snow;
+            this.label6.Location = new System.Drawing.Point(68, 29);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(143, 22);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Company Type :";
+            // 
             // frmVendorCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(827, 587);
+            this.ClientSize = new System.Drawing.Size(900, 615);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Name = "frmVendorCreation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVendorCreation";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmVendorCreation_FormClosed);
             this.Load += new System.EventHandler(this.frmVendorCreation_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -551,6 +583,8 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.TextBox PhonetextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox CompanyTypecomboBox;
 
     }
 }
