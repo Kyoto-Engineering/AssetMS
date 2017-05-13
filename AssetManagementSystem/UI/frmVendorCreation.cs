@@ -678,7 +678,7 @@ namespace AssetManagementSystem.UI
 
         private void CompanyTypecomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            VendorNametextBox.Focus();
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -704,6 +704,143 @@ namespace AssetManagementSystem.UI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void CompanyTypecomboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                VendorNametextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void VendorNametextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PhonetextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void PhonetextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EmailAddresstextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void EmailAddresstextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                WebServiceUrltextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void WebServiceUrltextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAFlatNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAFlatNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAHouseNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAHouseNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRARoadNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRARoadNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRABlock.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRABlock_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAArea.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAArea_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAContactNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAContactNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRADivision.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRADivision_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRADistrict.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRADistrict_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRAThana.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRAThana_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRAPost.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRAPost_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnInsert_Click(this, new EventArgs());
+            }
         }      
     }
 }
+
+
+//btnInsert_Click

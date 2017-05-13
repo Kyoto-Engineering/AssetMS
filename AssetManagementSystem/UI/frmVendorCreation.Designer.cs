@@ -124,6 +124,7 @@
             this.CompanyTypecomboBox.Size = new System.Drawing.Size(262, 27);
             this.CompanyTypecomboBox.TabIndex = 0;
             this.CompanyTypecomboBox.SelectedIndexChanged += new System.EventHandler(this.CompanyTypecomboBox_SelectedIndexChanged);
+            this.CompanyTypecomboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompanyTypecomboBox_KeyDown);
             // 
             // PhonetextBox
             // 
@@ -133,6 +134,7 @@
             this.PhonetextBox.Name = "PhonetextBox";
             this.PhonetextBox.Size = new System.Drawing.Size(262, 29);
             this.PhonetextBox.TabIndex = 2;
+            this.PhonetextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PhonetextBox_KeyDown);
             this.PhonetextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhonetextBox_KeyPress);
             // 
             // label4
@@ -153,6 +155,7 @@
             this.EmailAddresstextBox.Name = "EmailAddresstextBox";
             this.EmailAddresstextBox.Size = new System.Drawing.Size(262, 29);
             this.EmailAddresstextBox.TabIndex = 3;
+            this.EmailAddresstextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmailAddresstextBox_KeyDown);
             this.EmailAddresstextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EmailAddresstextBox_Validating);
             // 
             // label1
@@ -173,6 +176,7 @@
             this.WebServiceUrltextBox.Name = "WebServiceUrltextBox";
             this.WebServiceUrltextBox.Size = new System.Drawing.Size(262, 29);
             this.WebServiceUrltextBox.TabIndex = 4;
+            this.WebServiceUrltextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WebServiceUrltextBox_KeyDown);
             this.WebServiceUrltextBox.Leave += new System.EventHandler(this.WebServiceUrltextBox_Leave);
             // 
             // label3
@@ -193,6 +197,7 @@
             this.VendorNametextBox.Name = "VendorNametextBox";
             this.VendorNametextBox.Size = new System.Drawing.Size(262, 29);
             this.VendorNametextBox.TabIndex = 1;
+            this.VendorNametextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VendorNametextBox_KeyDown);
             this.VendorNametextBox.Leave += new System.EventHandler(this.VendorNametextBox_Leave);
             // 
             // label2
@@ -250,6 +255,7 @@
             this.txtRABlock.Name = "txtRABlock";
             this.txtRABlock.Size = new System.Drawing.Size(172, 26);
             this.txtRABlock.TabIndex = 3;
+            this.txtRABlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRABlock_KeyDown);
             // 
             // cmbRAPost
             // 
@@ -260,6 +266,7 @@
             this.cmbRAPost.Size = new System.Drawing.Size(196, 30);
             this.cmbRAPost.TabIndex = 9;
             this.cmbRAPost.SelectedIndexChanged += new System.EventHandler(this.cmbRAPost_SelectedIndexChanged);
+            this.cmbRAPost.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRAPost_KeyDown);
             // 
             // label44
             // 
@@ -299,6 +306,7 @@
             this.cmbRADivision.Size = new System.Drawing.Size(198, 30);
             this.cmbRADivision.TabIndex = 6;
             this.cmbRADivision.SelectedIndexChanged += new System.EventHandler(this.cmbRADivision_SelectedIndexChanged);
+            this.cmbRADivision.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRADivision_KeyDown);
             // 
             // label41
             // 
@@ -348,6 +356,7 @@
             this.cmbRAThana.Size = new System.Drawing.Size(197, 30);
             this.cmbRAThana.TabIndex = 8;
             this.cmbRAThana.SelectedIndexChanged += new System.EventHandler(this.cmbRAThana_SelectedIndexChanged);
+            this.cmbRAThana.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRAThana_KeyDown);
             // 
             // txtRAContactNo
             // 
@@ -357,6 +366,7 @@
             this.txtRAContactNo.Name = "txtRAContactNo";
             this.txtRAContactNo.Size = new System.Drawing.Size(171, 26);
             this.txtRAContactNo.TabIndex = 5;
+            this.txtRAContactNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAContactNo_KeyDown);
             this.txtRAContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRAContactNo_KeyPress);
             // 
             // label26
@@ -379,6 +389,7 @@
             this.cmbRADistrict.Size = new System.Drawing.Size(198, 27);
             this.cmbRADistrict.TabIndex = 7;
             this.cmbRADistrict.SelectedIndexChanged += new System.EventHandler(this.cmbRADistrict_SelectedIndexChanged);
+            this.cmbRADistrict.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbRADistrict_KeyDown);
             // 
             // label21
             // 
@@ -406,6 +417,7 @@
             this.txtRAArea.Name = "txtRAArea";
             this.txtRAArea.Size = new System.Drawing.Size(171, 26);
             this.txtRAArea.TabIndex = 4;
+            this.txtRAArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAArea_KeyDown);
             // 
             // label20
             // 
@@ -444,6 +456,7 @@
             this.txtRARoadNo.Name = "txtRARoadNo";
             this.txtRARoadNo.Size = new System.Drawing.Size(172, 26);
             this.txtRARoadNo.TabIndex = 2;
+            this.txtRARoadNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRARoadNo_KeyDown);
             // 
             // txtRAHouseNo
             // 
@@ -452,6 +465,7 @@
             this.txtRAHouseNo.Name = "txtRAHouseNo";
             this.txtRAHouseNo.Size = new System.Drawing.Size(172, 26);
             this.txtRAHouseNo.TabIndex = 1;
+            this.txtRAHouseNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAHouseNo_KeyDown);
             // 
             // txtRAFlatNo
             // 
@@ -460,6 +474,7 @@
             this.txtRAFlatNo.Name = "txtRAFlatNo";
             this.txtRAFlatNo.Size = new System.Drawing.Size(172, 26);
             this.txtRAFlatNo.TabIndex = 0;
+            this.txtRAFlatNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRAFlatNo_KeyDown);
             // 
             // label17
             // 

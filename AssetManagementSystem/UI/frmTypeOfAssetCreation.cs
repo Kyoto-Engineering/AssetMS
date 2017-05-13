@@ -29,6 +29,7 @@ namespace AssetManagementSystem.UI
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
+            
             if (string.IsNullOrWhiteSpace(cmbStability.Text))
             {
                 MessageBox.Show("Please  Select Stability", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -166,5 +167,31 @@ namespace AssetManagementSystem.UI
             }
         }
 
+        private void cmbStability_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TypeOfAssettextBox.Focus();
+        }
+
+        private void cmbStability_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TypeOfAssettextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void TypeOfAssettextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                
+                Savebutton_Click(this, new EventArgs());
+                cmbStability.Focus();
+            }
+        }
+
     }
 }
+
+// Savebutton_Click(this, new EventArgs());

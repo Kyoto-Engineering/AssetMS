@@ -126,6 +126,8 @@
             this.txtUsername.Size = new System.Drawing.Size(249, 29);
             this.txtUsername.TabIndex = 0;
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // txtPassword
             // 
@@ -136,6 +138,7 @@
             this.txtPassword.Size = new System.Drawing.Size(249, 29);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // txtFullName
             // 
@@ -144,6 +147,8 @@
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(249, 29);
             this.txtFullName.TabIndex = 4;
+            this.txtFullName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFullName_KeyDown);
+            this.txtFullName.Leave += new System.EventHandler(this.txtFullName_Leave);
             // 
             // designationTextBox
             // 
@@ -152,6 +157,7 @@
             this.designationTextBox.Name = "designationTextBox";
             this.designationTextBox.Size = new System.Drawing.Size(249, 29);
             this.designationTextBox.TabIndex = 5;
+            this.designationTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.designationTextBox_KeyDown);
             // 
             // departmentTextBox
             // 
@@ -160,14 +166,17 @@
             this.departmentTextBox.Name = "departmentTextBox";
             this.departmentTextBox.Size = new System.Drawing.Size(249, 29);
             this.departmentTextBox.TabIndex = 6;
+            this.departmentTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.departmentTextBox_KeyDown);
             // 
             // txtContact_no
             // 
             this.txtContact_no.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContact_no.Location = new System.Drawing.Point(249, 435);
+            this.txtContact_no.MaxLength = 11;
             this.txtContact_no.Name = "txtContact_no";
             this.txtContact_no.Size = new System.Drawing.Size(249, 29);
             this.txtContact_no.TabIndex = 7;
+            this.txtContact_no.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContact_no_KeyDown);
             this.txtContact_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContact_no_KeyPress);
             // 
             // cmbUserType
@@ -182,6 +191,8 @@
             this.cmbUserType.Name = "cmbUserType";
             this.cmbUserType.Size = new System.Drawing.Size(249, 30);
             this.cmbUserType.TabIndex = 3;
+            this.cmbUserType.SelectedIndexChanged += new System.EventHandler(this.cmbUserType_SelectedIndexChanged);
+            this.cmbUserType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbUserType_KeyDown);
             // 
             // userButton
             // 
@@ -212,6 +223,8 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(249, 29);
             this.txtEmail.TabIndex = 2;
+            this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label9
             // 

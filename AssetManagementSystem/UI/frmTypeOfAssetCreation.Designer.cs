@@ -70,6 +70,8 @@
             this.cmbStability.Name = "cmbStability";
             this.cmbStability.Size = new System.Drawing.Size(281, 30);
             this.cmbStability.TabIndex = 0;
+            this.cmbStability.SelectedIndexChanged += new System.EventHandler(this.cmbStability_SelectedIndexChanged);
+            this.cmbStability.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbStability_KeyDown);
             // 
             // lblStability
             // 
@@ -89,6 +91,7 @@
             this.TypeOfAssettextBox.Name = "TypeOfAssettextBox";
             this.TypeOfAssettextBox.Size = new System.Drawing.Size(281, 29);
             this.TypeOfAssettextBox.TabIndex = 1;
+            this.TypeOfAssettextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TypeOfAssettextBox_KeyDown);
             this.TypeOfAssettextBox.Leave += new System.EventHandler(this.TypeOfAssettextBox_Leave);
             // 
             // Savebutton

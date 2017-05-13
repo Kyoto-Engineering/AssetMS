@@ -251,6 +251,7 @@ namespace AssetManagementSystem
 
         private void cmbTypeOfAsset_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             cmbNameOfAsset.Items.Clear();
             cmbNameOfAsset.SelectedIndex = -1;
             cmbNameOfAsset.ResetText();
@@ -308,6 +309,7 @@ namespace AssetManagementSystem
             //}
             //else
             //{
+            cmbNameOfAsset.Focus();
                 try
                 {
                     con = new SqlConnection(cs.DBConn);
@@ -353,7 +355,7 @@ namespace AssetManagementSystem
 
         private void cmbNameOfAsset_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            txtDescription.Focus();
             if (cmbNameOfAsset.Text == "Not In The List")
             {
                 string inp = Microsoft.VisualBasic.Interaction.InputBox("Please Input Asset Name Here", "Input Here",
@@ -439,7 +441,7 @@ namespace AssetManagementSystem
 
         private void cmbV_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            txtInvoiceNo.Focus();
             //if (cmbV_Name.Text == "Not In The List")
             //{
             //    string inpv = Microsoft.VisualBasic.Interaction.InputBox("Please Input Vendor Name Here", "Input Here",
@@ -544,6 +546,7 @@ namespace AssetManagementSystem
 
         private void cmbUnitname_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtUnit.Focus();
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -742,6 +745,9 @@ namespace AssetManagementSystem
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+
+            cmbTypeOfAsset.Focus();
+
             if (dateTimePicker1.Value > DateTime.Now)
             {
                 MessageBox.Show("Should not be exceed Date Time from today", "Warrning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -765,12 +771,112 @@ namespace AssetManagementSystem
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+
+        private void dateTimePicker1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbTypeOfAsset.Focus();
+                e.Handled = true;
+
+            }
+        }
+
+        private void cmbTypeOfAsset_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbNameOfAsset.Focus();
+                e.Handled = true;
+            
+            }
+        }
+
+        private void cmbNameOfAsset_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtDescription.Focus();
+                e.Handled = true; 
+            }
+        }
+
+        private void txtDescription_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbV_Name.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbV_Name_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtInvoiceNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtInvoiceNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbUnitname.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbUnitname_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtUnit.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtUnit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtUnitPrice.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtUnitPrice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtUnitSalvageValue.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtUnitSalvageValue_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtLifeSpanInYear.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtLifeSpanInYear_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSave_Click(this,new EventArgs());
+            }
+        }
     }
 }
 
 
-
-
+//
+ 
 
 
 

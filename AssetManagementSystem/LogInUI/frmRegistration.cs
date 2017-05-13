@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AssetManagementSystem.DbGateway;
+using System.Text.RegularExpressions;
 
 namespace AssetManagementSystem.LogInUI
 {
@@ -219,5 +220,147 @@ namespace AssetManagementSystem.LogInUI
             frmLogin frm = new frmLogin();
             frm.Show();
         }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPassword.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtEmail.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbUserType.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbUserType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtFullName.Focus();
+        }
+
+        private void cmbUserType_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtFullName.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtFullName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                designationTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void designationTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                departmentTextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void departmentTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtContact_no.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtContact_no_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                userButton_Click(this, new EventArgs());
+                
+            }
+           
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtEmail.Text))
+            {
+                string emailId = txtEmail.Text.Trim();
+                Regex mRegxExpression;
+
+                mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+
+                if (!mRegxExpression.IsMatch(emailId))
+                {
+
+                    MessageBox.Show("Please type your  valid email Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEmail.Clear();
+                    txtEmail.Focus();
+
+                }
+            }
+        }
+
+        private void txtFullName_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtFullName.Text))
+            {
+                string Fullname = txtFullName.Text.Trim();
+                Regex mRegxExpression;
+                int Minlen = 3;
+
+                mRegxExpression = new Regex(@"^[A-Za-z]+[\s][A-Za-z]+[.][A-Za-z]+$");
+
+                if ((!mRegxExpression.IsMatch(Fullname)) && (!(txtFullName.Text.Length >= Minlen)))
+                {
+
+                    MessageBox.Show("Please type your  valid Full Name.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtFullName.Clear();
+                    txtFullName.Focus();
+
+                }
+            }
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtUsername.Text))
+            {
+                string Username = txtUsername.Text.Trim();
+                Regex mRegxExpression;
+               // int Minlen = 3;
+
+                mRegxExpression = new Regex(@"^[a-zA-Z][a-zA-Z0-9]{2,9}$");
+
+                if (!mRegxExpression.IsMatch(Username))// && (!(txtUsername.Text.Length >= Minlen)))
+                {
+
+                    MessageBox.Show("Please type a valid Username:\nInput at least 3 character,\nUsername cann't start with a digit or a symbol.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUsername.Clear();
+                    txtUsername.Focus();
+
+                }
+            }
+        }
     }
 }
+
+// 
