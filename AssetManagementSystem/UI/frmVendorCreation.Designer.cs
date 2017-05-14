@@ -136,6 +136,7 @@
             this.PhonetextBox.TabIndex = 2;
             this.PhonetextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PhonetextBox_KeyDown);
             this.PhonetextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhonetextBox_KeyPress);
+            this.PhonetextBox.Leave += new System.EventHandler(this.PhonetextBox_Leave);
             // 
             // label4
             // 

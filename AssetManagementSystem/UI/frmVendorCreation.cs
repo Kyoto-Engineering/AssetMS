@@ -138,6 +138,11 @@ namespace AssetManagementSystem.UI
                     MessageBox.Show(@"This Person Exists,Please Input another one" + "\n" + @"Or Use another Phone",
                         "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    VendorNametextBox.Clear();
+                    PhonetextBox.Clear();
+                    WebServiceUrltextBox.Clear();
+                    EmailAddresstextBox.Clear();
+                    //VendorNametextBox.Focus();
                     con.Close();
                     return true;
                 }
@@ -147,6 +152,10 @@ namespace AssetManagementSystem.UI
                     MessageBox.Show(@"This Person Exists,Please Input another one" + "\n" + @"Or Use another Email",
                         "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    VendorNametextBox.Clear();
+                    PhonetextBox.Clear();
+                    WebServiceUrltextBox.Clear();
+                    EmailAddresstextBox.Clear();
                     con.Close();
                     return true;
                 }
@@ -157,9 +166,17 @@ namespace AssetManagementSystem.UI
                         @"This Person Exists,Please Input another one" + "\n" + @"Or Use another Web Service URL",
                         "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    VendorNametextBox.Clear();
+                    PhonetextBox.Clear();
+                    WebServiceUrltextBox.Clear();
+                    EmailAddresstextBox.Clear();
+
                     con.Close();
                     return true;
                 }
+
+               
+
             }
             return false;
         }
@@ -837,6 +854,26 @@ namespace AssetManagementSystem.UI
             if (e.KeyCode == Keys.Enter)
             {
                 btnInsert_Click(this, new EventArgs());
+            }
+        }
+
+        private void PhonetextBox_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(PhonetextBox.Text))
+            {
+                string PhnNo = PhonetextBox.Text.Trim();
+                 int Minlen = 8;
+
+
+
+                 if (!(PhonetextBox.Text.Length >= Minlen))
+                {
+
+                    MessageBox.Show("Please type your  valid Phone No.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    PhonetextBox.Clear();
+                    PhonetextBox.Focus();
+
+                }
             }
         }      
     }
