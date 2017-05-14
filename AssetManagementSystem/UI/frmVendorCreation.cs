@@ -578,6 +578,97 @@ namespace AssetManagementSystem.UI
             }
         }
 
+
+        private void PhonetextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
+                e.Handled = true;
+            
+        }
+
+        private void EmailAddresstextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(EmailAddresstextBox.Text))
+            {
+                string emailId = EmailAddresstextBox.Text.Trim();
+                Regex mRegxExpression;
+
+                mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+
+                if (!mRegxExpression.IsMatch(emailId))
+                {
+
+                    MessageBox.Show("Please type your  valid email Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    EmailAddresstextBox.Clear();
+                    EmailAddresstextBox.Focus();
+
+                }
+            }
+        }
+
+        private void txtRAContactNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
+                e.Handled = true;
+        }
+
+        private void VendorNametextBox_Leave(object sender, EventArgs e)
+        {
+           // int Minlen = 3;
+            //if (!(VendorNametextBox.Text.Length >= Minlen))
+            //{
+              //  MessageBox.Show("input atleast 3 Character");
+              ////  VendorNametextBox.Clear();
+             //   VendorNametextBox.Focus();
+            
+          //  }
+           
+            
+            if (!string.IsNullOrEmpty(VendorNametextBox.Text))
+            {
+                string vendorname = VendorNametextBox.Text.Trim();
+                Regex mRegxExpression;
+                int Minlen = 3;
+
+                mRegxExpression = new Regex(@"^[A-Za-z]+[\s][A-Za-z]+[.][A-Za-z]+$");
+
+                if ((!mRegxExpression.IsMatch(vendorname)) && (!(VendorNametextBox.Text.Length >= Minlen)))
+                {
+
+                    MessageBox.Show("Please type your  valid Vendor Name.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    VendorNametextBox.Clear();
+                    VendorNametextBox.Focus();
+
+                }
+            }
+
+
+        }
+
+        private void WebServiceUrltextBox_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(WebServiceUrltextBox.Text))
+            {
+                string urlAddress = WebServiceUrltextBox.Text.Trim();
+                Regex mRegxExpression;
+                Regex mRegxExpression1;
+
+                mRegxExpression = new Regex(@"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$");
+                mRegxExpression1 = new Regex(@"^(www.)[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$");
+
+                if ((!mRegxExpression.IsMatch(urlAddress)) && (!mRegxExpression1.IsMatch(urlAddress)))
+                {
+
+                    MessageBox.Show("Please type your  valid Url Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    WebServiceUrltextBox.Clear();
+                    WebServiceUrltextBox.Focus();
+
+                }
+            }
+        }
+
+                
+
         private void frmVendorCreation_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
@@ -587,7 +678,7 @@ namespace AssetManagementSystem.UI
 
         private void CompanyTypecomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            VendorNametextBox.Focus();
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -611,7 +702,145 @@ namespace AssetManagementSystem.UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void CompanyTypecomboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                VendorNametextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void VendorNametextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PhonetextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void PhonetextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EmailAddresstextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void EmailAddresstextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                WebServiceUrltextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void WebServiceUrltextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAFlatNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAFlatNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAHouseNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAHouseNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRARoadNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRARoadNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRABlock.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRABlock_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAArea.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAArea_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtRAContactNo.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtRAContactNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRADivision.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRADivision_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRADistrict.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRADistrict_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRAThana.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRAThana_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbRAPost.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void cmbRAPost_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnInsert_Click(this, new EventArgs());
             }
         }      
     }
 }
+
+
+//btnInsert_Click

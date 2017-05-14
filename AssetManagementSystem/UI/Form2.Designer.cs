@@ -97,7 +97,7 @@
             this.txtAllowanceUnits.Location = new System.Drawing.Point(310, 299);
             this.txtAllowanceUnits.Name = "txtAllowanceUnits";
             this.txtAllowanceUnits.Size = new System.Drawing.Size(228, 29);
-            this.txtAllowanceUnits.TabIndex = 4;
+            this.txtAllowanceUnits.TabIndex = 3;
             // 
             // dateTimePicker2
             // 
@@ -107,7 +107,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(310, 349);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(228, 25);
-            this.dateTimePicker2.TabIndex = 5;
+            this.dateTimePicker2.TabIndex = 4;
             // 
             // cmbIncumbentType
             // 
@@ -117,7 +117,7 @@
             this.cmbIncumbentType.Location = new System.Drawing.Point(310, 399);
             this.cmbIncumbentType.Name = "cmbIncumbentType";
             this.cmbIncumbentType.Size = new System.Drawing.Size(228, 27);
-            this.cmbIncumbentType.TabIndex = 6;
+            this.cmbIncumbentType.TabIndex = 5;
             this.cmbIncumbentType.SelectedIndexChanged += new System.EventHandler(this.cmbIncumbentType_SelectedIndexChanged);
             // 
             // cmbIncumbentName
@@ -128,7 +128,7 @@
             this.cmbIncumbentName.Location = new System.Drawing.Point(310, 449);
             this.cmbIncumbentName.Name = "cmbIncumbentName";
             this.cmbIncumbentName.Size = new System.Drawing.Size(228, 27);
-            this.cmbIncumbentName.TabIndex = 7;
+            this.cmbIncumbentName.TabIndex = 6;
             this.cmbIncumbentName.SelectedIndexChanged += new System.EventHandler(this.cmbIncumbentName_SelectedIndexChanged);
             // 
             // btnSave
@@ -139,7 +139,7 @@
             this.btnSave.Location = new System.Drawing.Point(606, 475);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(103, 59);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -185,7 +185,7 @@
             this.cmbTypeOfAsset.Location = new System.Drawing.Point(310, 144);
             this.cmbTypeOfAsset.Name = "cmbTypeOfAsset";
             this.cmbTypeOfAsset.Size = new System.Drawing.Size(228, 30);
-            this.cmbTypeOfAsset.TabIndex = 14;
+            this.cmbTypeOfAsset.TabIndex = 0;
             this.cmbTypeOfAsset.SelectedIndexChanged += new System.EventHandler(this.cmbTypeOfAsset_SelectedIndexChanged);
             // 
             // cmbNameOfAsset
@@ -196,7 +196,7 @@
             this.cmbNameOfAsset.Location = new System.Drawing.Point(310, 196);
             this.cmbNameOfAsset.Name = "cmbNameOfAsset";
             this.cmbNameOfAsset.Size = new System.Drawing.Size(228, 30);
-            this.cmbNameOfAsset.TabIndex = 15;
+            this.cmbNameOfAsset.TabIndex = 1;
             this.cmbNameOfAsset.SelectedIndexChanged += new System.EventHandler(this.cmbNameOfAsset_SelectedIndexChanged);
             // 
             // cmbDescription
@@ -207,7 +207,7 @@
             this.cmbDescription.Location = new System.Drawing.Point(310, 247);
             this.cmbDescription.Name = "cmbDescription";
             this.cmbDescription.Size = new System.Drawing.Size(399, 30);
-            this.cmbDescription.TabIndex = 16;
+            this.cmbDescription.TabIndex = 2;
             this.cmbDescription.SelectedIndexChanged += new System.EventHandler(this.cmbDescription_SelectedIndexChanged);
             // 
             // label8

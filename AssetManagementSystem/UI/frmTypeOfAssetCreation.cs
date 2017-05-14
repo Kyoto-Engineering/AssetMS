@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AssetManagementSystem.DbGateway;
 using AssetManagementSystem.LogInUI;
+using System.Text.RegularExpressions;
 
 namespace AssetManagementSystem.UI
 {
@@ -28,6 +29,7 @@ namespace AssetManagementSystem.UI
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
+            
             if (string.IsNullOrWhiteSpace(cmbStability.Text))
             {
                 MessageBox.Show("Please  Select Stability", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -144,5 +146,52 @@ namespace AssetManagementSystem.UI
             frm.Show();
         }
 
+        private void TypeOfAssettextBox_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TypeOfAssettextBox.Text))
+            {
+                string vendorname = TypeOfAssettextBox.Text.Trim();
+                Regex mRegxExpression;
+                int Minlen = 3;
+
+                mRegxExpression = new Regex(@"^[A-Za-z]+[\s][A-Za-z]+[.][A-Za-z]+$");
+
+                if ((!mRegxExpression.IsMatch(vendorname)) && (!(TypeOfAssettextBox.Text.Length >= Minlen)))
+                {
+
+                    MessageBox.Show("Please type your  valid Asset type.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TypeOfAssettextBox.Clear();
+                    TypeOfAssettextBox.Focus();
+
+                }
+            }
+        }
+
+        private void cmbStability_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TypeOfAssettextBox.Focus();
+        }
+
+        private void cmbStability_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TypeOfAssettextBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void TypeOfAssettextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                
+                Savebutton_Click(this, new EventArgs());
+                cmbStability.Focus();
+            }
+        }
+
     }
 }
+
+// Savebutton_Click(this, new EventArgs());

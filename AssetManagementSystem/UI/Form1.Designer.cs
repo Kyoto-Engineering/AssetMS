@@ -64,7 +64,7 @@
             this.btnSave.Location = new System.Drawing.Point(808, 356);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(92, 55);
-            this.btnSave.TabIndex = 1;
+            this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -91,9 +91,10 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(146, 118);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(224, 25);
-            this.dateTimePicker1.TabIndex = 34;
+            this.dateTimePicker1.TabIndex = 0;
             this.dateTimePicker1.Value = new System.DateTime(2016, 12, 16, 21, 18, 41, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker1_KeyDown);
             // 
             // lblPurchaseDate
             // 
@@ -114,8 +115,9 @@
             this.cmbTypeOfAsset.Location = new System.Drawing.Point(147, 156);
             this.cmbTypeOfAsset.Name = "cmbTypeOfAsset";
             this.cmbTypeOfAsset.Size = new System.Drawing.Size(334, 30);
-            this.cmbTypeOfAsset.TabIndex = 26;
+            this.cmbTypeOfAsset.TabIndex = 1;
             this.cmbTypeOfAsset.SelectedIndexChanged += new System.EventHandler(this.cmbTypeOfAsset_SelectedIndexChanged);
+            this.cmbTypeOfAsset.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTypeOfAsset_KeyDown);
             // 
             // lblTypeOfAsset
             // 
@@ -147,8 +149,9 @@
             this.cmbNameOfAsset.Location = new System.Drawing.Point(147, 197);
             this.cmbNameOfAsset.Name = "cmbNameOfAsset";
             this.cmbNameOfAsset.Size = new System.Drawing.Size(334, 30);
-            this.cmbNameOfAsset.TabIndex = 37;
+            this.cmbNameOfAsset.TabIndex = 2;
             this.cmbNameOfAsset.SelectedIndexChanged += new System.EventHandler(this.cmbNameOfAsset_SelectedIndexChanged);
+            this.cmbNameOfAsset.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbNameOfAsset_KeyDown);
             // 
             // txtDescription
             // 
@@ -156,8 +159,9 @@
             this.txtDescription.Location = new System.Drawing.Point(147, 236);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(334, 81);
-            this.txtDescription.TabIndex = 38;
+            this.txtDescription.TabIndex = 3;
             this.txtDescription.Text = "";
+            this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescription_KeyDown);
             // 
             // lblV_Name
             // 
@@ -231,7 +235,8 @@
             this.txtInvoiceNo.Location = new System.Drawing.Point(145, 405);
             this.txtInvoiceNo.Name = "txtInvoiceNo";
             this.txtInvoiceNo.Size = new System.Drawing.Size(223, 29);
-            this.txtInvoiceNo.TabIndex = 49;
+            this.txtInvoiceNo.TabIndex = 6;
+            this.txtInvoiceNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtInvoiceNo_KeyDown);
             this.txtInvoiceNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInvoiceNo_KeyPress_1);
             // 
             // txtUnitPrice
@@ -240,7 +245,8 @@
             this.txtUnitPrice.Location = new System.Drawing.Point(718, 205);
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(182, 29);
-            this.txtUnitPrice.TabIndex = 52;
+            this.txtUnitPrice.TabIndex = 9;
+            this.txtUnitPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUnitPrice_KeyDown);
             this.txtUnitPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnitPrice_KeyPress);
             // 
             // txtUnitSalvageValue
@@ -249,7 +255,8 @@
             this.txtUnitSalvageValue.Location = new System.Drawing.Point(718, 242);
             this.txtUnitSalvageValue.Name = "txtUnitSalvageValue";
             this.txtUnitSalvageValue.Size = new System.Drawing.Size(182, 29);
-            this.txtUnitSalvageValue.TabIndex = 54;
+            this.txtUnitSalvageValue.TabIndex = 10;
+            this.txtUnitSalvageValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUnitSalvageValue_KeyDown);
             this.txtUnitSalvageValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnitSalvageValue_KeyPress);
             // 
             // txtLifeSpanInYear
@@ -258,7 +265,8 @@
             this.txtLifeSpanInYear.Location = new System.Drawing.Point(718, 286);
             this.txtLifeSpanInYear.Name = "txtLifeSpanInYear";
             this.txtLifeSpanInYear.Size = new System.Drawing.Size(182, 29);
-            this.txtLifeSpanInYear.TabIndex = 55;
+            this.txtLifeSpanInYear.TabIndex = 11;
+            this.txtLifeSpanInYear.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLifeSpanInYear_KeyDown);
             this.txtLifeSpanInYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLifeSpanInYear_KeyPress);
             // 
             // cmbV_Name
@@ -269,8 +277,9 @@
             this.cmbV_Name.Location = new System.Drawing.Point(147, 328);
             this.cmbV_Name.Name = "cmbV_Name";
             this.cmbV_Name.Size = new System.Drawing.Size(334, 27);
-            this.cmbV_Name.TabIndex = 56;
+            this.cmbV_Name.TabIndex = 4;
             this.cmbV_Name.SelectedIndexChanged += new System.EventHandler(this.cmbV_Name_SelectedIndexChanged);
+            this.cmbV_Name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbV_Name_KeyDown);
             // 
             // cmbUnitname
             // 
@@ -280,8 +289,9 @@
             this.cmbUnitname.Location = new System.Drawing.Point(718, 118);
             this.cmbUnitname.Name = "cmbUnitname";
             this.cmbUnitname.Size = new System.Drawing.Size(182, 27);
-            this.cmbUnitname.TabIndex = 57;
+            this.cmbUnitname.TabIndex = 7;
             this.cmbUnitname.SelectedIndexChanged += new System.EventHandler(this.cmbUnitname_SelectedIndexChanged);
+            this.cmbUnitname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbUnitname_KeyDown);
             // 
             // txtUnit
             // 
@@ -289,7 +299,8 @@
             this.txtUnit.Location = new System.Drawing.Point(718, 162);
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(182, 29);
-            this.txtUnit.TabIndex = 59;
+            this.txtUnit.TabIndex = 8;
+            this.txtUnit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUnit_KeyDown);
             this.txtUnit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnit_KeyPress);
             // 
             // lblUnins
@@ -323,7 +334,7 @@
             this.VendorNotextBox.Name = "VendorNotextBox";
             this.VendorNotextBox.ReadOnly = true;
             this.VendorNotextBox.Size = new System.Drawing.Size(92, 29);
-            this.VendorNotextBox.TabIndex = 63;
+            this.VendorNotextBox.TabIndex = 5;
             // 
             // label2
             // 
