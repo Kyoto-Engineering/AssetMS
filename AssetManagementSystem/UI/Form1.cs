@@ -646,6 +646,7 @@ namespace AssetManagementSystem
                     //Stability();
                     Unit();
                     Vendor();
+                    TypeofAsssetLoad();
                 }
                 catch (Exception ex)
                 {
