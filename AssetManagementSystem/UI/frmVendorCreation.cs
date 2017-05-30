@@ -652,7 +652,7 @@ namespace AssetManagementSystem.UI
                 if ((!mRegxExpression.IsMatch(vendorname)) && (!(VendorNametextBox.Text.Length >= Minlen)))
                 {
 
-                    MessageBox.Show("Please type your  valid Vendor Name.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please type your valid Vendor Name.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     VendorNametextBox.Clear();
                     VendorNametextBox.Focus();
 
@@ -676,7 +676,7 @@ namespace AssetManagementSystem.UI
                 if ((!mRegxExpression.IsMatch(urlAddress)) && (!mRegxExpression1.IsMatch(urlAddress)))
                 {
 
-                    MessageBox.Show("Please type your  valid Url Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please type your valid Url Address.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     WebServiceUrltextBox.Clear();
                     WebServiceUrltextBox.Focus();
 
