@@ -264,8 +264,10 @@ namespace AssetManagementSystem.UI
  
             if (cmbIncumbentType.Text == "Not In The List")
             {
-                string inputt = Microsoft.VisualBasic.Interaction.InputBox("Please Input Incumbent Type Here", "Input Here",
-                    "", -1, -1);
+                //string inputt = Microsoft.VisualBasic.Interaction.InputBox("Please Input Incumbent Type Here", "Input Here",
+                //    "", -1, -1);
+                string inputt = null;
+                InputBox.Show("Please Input Incumbent Type Here", "Inpute Here", ref inputt);
                 if (string.IsNullOrWhiteSpace(inputt))
                 {
                     cmbIncumbentType.SelectedIndex = -1;
@@ -359,9 +361,11 @@ namespace AssetManagementSystem.UI
         {
             if (cmbIncumbentName.Text == "Not In The List")
             {
-                string inpp = Microsoft.VisualBasic.Interaction.InputBox("Please Input Incumbent Name Here",
-                    "Input Here",
-                    "", -1, -1);
+                //string inpp = Microsoft.VisualBasic.Interaction.InputBox("Please Input Incumbent Name Here",
+                //    "Input Here",
+                //    "", -1, -1);
+                string inpp = null;
+                InputBox.Show("Please Input Incumbent Name Here", "Inpute Here", ref inpp);
                 if (string.IsNullOrWhiteSpace(inpp))
                 {
                     cmbIncumbentName.SelectedIndex = -1;

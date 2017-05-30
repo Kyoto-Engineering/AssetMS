@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using AssetManagementSystem.DbGateway;
 using AssetManagementSystem.LogInUI;
 using AssetManagementSystem.UI;
@@ -356,11 +357,27 @@ namespace AssetManagementSystem
         private void cmbNameOfAsset_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtDescription.Focus();
+            // InputBox with value validation - first define validation delegate, which
+            // returns empty string for valid values and error message for invalid values
+            //InputBoxValidation validation = delegate(string val)
+            //{
+            //    if (val == "")
+            //        return "Value cannot be empty.";
+            //    if (!(new Regex(@"^[a-zA-Z0-9_\-\.]+@[a-zA-Z0-9_\-\.]+\.[a-zA-Z]{2,}$")).IsMatch(val))
+            //        return "Email address is not valid.";
+            //    return "";
+            //};
+
+            //string value = "info@example.com";
+            //if (InputBox.Show("Enter your email address", "Email address:", ref value, validation) == DialogResult.OK)
+            //{
+            //    MessageBox.Show(value);
+            //}
             if (cmbNameOfAsset.Text == "Not In The List")
             {
-                string inp = Microsoft.VisualBasic.Interaction.InputBox("Please Input Asset Name Here", "Input Here",
-                    "", -1, -1);
-                if (string.IsNullOrWhiteSpace(inp))
+                string val = null;
+                InputBox.Show("Please Input Asset Name","Inpute Here",ref val);
+                if (string.IsNullOrWhiteSpace(val))
                 {
                     cmbNameOfAsset.SelectedIndex = -1;
                 }
@@ -368,7 +385,7 @@ namespace AssetManagementSystem
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select N_Name from tblNameOfAsset where N_Name='" + inp + "'AND T_Id='" + t_id + "'";
+                    string ct2 = "select N_Name from tblNameOfAsset where N_Name='" + val + "'AND T_Id='" + t_id + "'";
                     cmd = new SqlCommand(ct2, con);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read() && !rdr.IsDBNull(0))
@@ -388,7 +405,7 @@ namespace AssetManagementSystem
                                 "insert into tblNameOfAsset (N_Name, T_Id, UserId, CreationDate) values (@d1,@d2,@d3,@d4)" +
                                 "SELECT CONVERT(int,SCOPE_IDENTITY())";
                             cmd = new SqlCommand(query11, con);
-                            cmd.Parameters.AddWithValue("@d1", inp);
+                            cmd.Parameters.AddWithValue("@d1", val);
                             cmd.Parameters.AddWithValue("@d2", t_id);
                             cmd.Parameters.AddWithValue("@d3", user_id);
                             cmd.Parameters.AddWithValue("@d4", DateTime.UtcNow.ToLocalTime());
@@ -399,7 +416,7 @@ namespace AssetManagementSystem
                             //cmbNameOfAsset.SelectedIndex = -1;
                             //cmbNameOfAsset.ResetText();
                             NameofAsssetLoad();
-                            cmbNameOfAsset.SelectedText = inp;
+                            cmbNameOfAsset.SelectedText =val;
                         }
                         catch (Exception ex)
                         {

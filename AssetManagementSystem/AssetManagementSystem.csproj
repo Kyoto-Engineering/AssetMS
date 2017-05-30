@@ -144,6 +144,7 @@
     <Compile Include="UI\frmVendorCreation.Designer.cs">
       <DependentUpon>frmVendorCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\InputBox.cs" />
     <Compile Include="UI\MainUI1.cs">
       <SubType>Form</SubType>
     </Compile>
