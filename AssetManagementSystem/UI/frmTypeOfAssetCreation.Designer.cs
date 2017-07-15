@@ -89,6 +89,7 @@
             // 
             this.TypeOfAssettextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TypeOfAssettextBox.Location = new System.Drawing.Point(146, 86);
+            this.TypeOfAssettextBox.MaxLength = 50;
             this.TypeOfAssettextBox.Name = "TypeOfAssettextBox";
             this.TypeOfAssettextBox.Size = new System.Drawing.Size(281, 29);
             this.TypeOfAssettextBox.TabIndex = 1;

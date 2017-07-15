@@ -154,6 +154,7 @@
             // 
             this.EmailAddresstextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailAddresstextBox.Location = new System.Drawing.Point(216, 133);
+            this.EmailAddresstextBox.MaxLength = 90;
             this.EmailAddresstextBox.Name = "EmailAddresstextBox";
             this.EmailAddresstextBox.Size = new System.Drawing.Size(262, 29);
             this.EmailAddresstextBox.TabIndex = 3;
@@ -175,6 +176,7 @@
             // 
             this.WebServiceUrltextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WebServiceUrltextBox.Location = new System.Drawing.Point(216, 167);
+            this.WebServiceUrltextBox.MaxLength = 255;
             this.WebServiceUrltextBox.Name = "WebServiceUrltextBox";
             this.WebServiceUrltextBox.Size = new System.Drawing.Size(262, 29);
             this.WebServiceUrltextBox.TabIndex = 4;
@@ -196,6 +198,7 @@
             // 
             this.VendorNametextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VendorNametextBox.Location = new System.Drawing.Point(216, 64);
+            this.VendorNametextBox.MaxLength = 90;
             this.VendorNametextBox.Name = "VendorNametextBox";
             this.VendorNametextBox.Size = new System.Drawing.Size(262, 29);
             this.VendorNametextBox.TabIndex = 1;
@@ -254,6 +257,7 @@
             // 
             this.txtRABlock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRABlock.Location = new System.Drawing.Point(172, 104);
+            this.txtRABlock.MaxLength = 50;
             this.txtRABlock.Name = "txtRABlock";
             this.txtRABlock.Size = new System.Drawing.Size(172, 26);
             this.txtRABlock.TabIndex = 3;
@@ -416,6 +420,7 @@
             // 
             this.txtRAArea.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRAArea.Location = new System.Drawing.Point(173, 133);
+            this.txtRAArea.MaxLength = 50;
             this.txtRAArea.Name = "txtRAArea";
             this.txtRAArea.Size = new System.Drawing.Size(171, 26);
             this.txtRAArea.TabIndex = 4;
@@ -455,6 +460,7 @@
             // 
             this.txtRARoadNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRARoadNo.Location = new System.Drawing.Point(173, 75);
+            this.txtRARoadNo.MaxLength = 50;
             this.txtRARoadNo.Name = "txtRARoadNo";
             this.txtRARoadNo.Size = new System.Drawing.Size(172, 26);
             this.txtRARoadNo.TabIndex = 2;
@@ -464,6 +470,7 @@
             // 
             this.txtRAHouseNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRAHouseNo.Location = new System.Drawing.Point(173, 46);
+            this.txtRAHouseNo.MaxLength = 50;
             this.txtRAHouseNo.Name = "txtRAHouseNo";
             this.txtRAHouseNo.Size = new System.Drawing.Size(172, 26);
             this.txtRAHouseNo.TabIndex = 1;
@@ -473,6 +480,7 @@
             // 
             this.txtRAFlatNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRAFlatNo.Location = new System.Drawing.Point(173, 17);
+            this.txtRAFlatNo.MaxLength = 50;
             this.txtRAFlatNo.Name = "txtRAFlatNo";
             this.txtRAFlatNo.Size = new System.Drawing.Size(172, 26);
             this.txtRAFlatNo.TabIndex = 0;

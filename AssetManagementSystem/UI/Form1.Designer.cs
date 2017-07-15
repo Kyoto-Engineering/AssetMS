@@ -234,6 +234,7 @@
             // 
             this.txtInvoiceNo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInvoiceNo.Location = new System.Drawing.Point(145, 405);
+            this.txtInvoiceNo.MaxLength = 255;
             this.txtInvoiceNo.Name = "txtInvoiceNo";
             this.txtInvoiceNo.Size = new System.Drawing.Size(223, 29);
             this.txtInvoiceNo.TabIndex = 6;
